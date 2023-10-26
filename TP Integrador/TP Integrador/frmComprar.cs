@@ -15,6 +15,8 @@ namespace TP_Integrador
         public frmComprar()
         {
             InitializeComponent();
+
+
         }
     }
 }
