@@ -9,9 +9,12 @@ namespace BE
     public class Cliente: Usuario
     {
 
+        public void pepe()
+        {
+            
+        }
 
-
-
+            
         public int id_Cliente { get; set; } 
 
         public string Nombre { get; set; }
