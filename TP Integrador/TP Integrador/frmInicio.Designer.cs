@@ -102,6 +102,7 @@ namespace TP_Integrador
             this.btnVerConsultas.TabIndex = 3;
             this.btnVerConsultas.Text = "Ver Consultas";
             this.btnVerConsultas.UseVisualStyleBackColor = true;
+            this.btnVerConsultas.Click += new System.EventHandler(this.btnVerConsultas_Click);
             // 
             // frmInicio
             // 

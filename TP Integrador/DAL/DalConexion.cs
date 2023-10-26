@@ -12,6 +12,7 @@ namespace DAL
     public class DalConexion
     {
         //Data Source=090L6PC21 = AGUS Y JOAQUIN
+        //Data Source=090L6PC21-79693
         SqlConnection con = new SqlConnection("Data Source=090L6PC21-79693;Initial Catalog=TPIntegrador;Integrated Security=True");
        
         private void Conectar()

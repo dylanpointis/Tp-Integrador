@@ -60,5 +60,11 @@ namespace TP_Integrador
         {
             label1.Text = $"Bienvenido {rol} {nombreUsuario}";
         }
+
+        private void btnVerConsultas_Click(object sender, EventArgs e)
+        {
+            frmAdmin admin = new frmAdmin();
+            AbrirForm(admin);
+        }
     }
 }
