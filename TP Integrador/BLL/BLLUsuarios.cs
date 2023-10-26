@@ -30,8 +30,5 @@ namespace BLL
                 return (esClaveCorrecta, rol);
             }
         }
-
-
-
     }
 }

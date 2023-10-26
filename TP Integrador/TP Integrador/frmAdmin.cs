@@ -16,5 +16,10 @@ namespace TP_Integrador
         {
             InitializeComponent();
         }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

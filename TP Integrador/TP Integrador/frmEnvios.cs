@@ -7,22 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
 
 namespace TP_Integrador
 {
-    public partial class frmComprar : Form
+    public partial class frmEnvios : Form
     {
-        public frmComprar()
+        public frmEnvios()
         {
             InitializeComponent();
-        }
-
-        public BLLComprar bll = new BLLComprar();
-
-        private void frmComprar_Load(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = bll.traerTabla();
         }
     }
 }

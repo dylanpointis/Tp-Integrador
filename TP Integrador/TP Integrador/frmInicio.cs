@@ -56,6 +56,8 @@ namespace TP_Integrador
             AbrirForm(form);
         }
 
+ 
+
         private void frmInicio_Load(object sender, EventArgs e)
         {
             label1.Text = $"Bienvenido {rol} {nombreUsuario}";
@@ -65,6 +67,12 @@ namespace TP_Integrador
         {
             frmAdmin admin = new frmAdmin();
             AbrirForm(admin);
+        }
+
+        private void btnEnvios_Click(object sender, EventArgs e)
+        {
+            frmEnvios form = new frmEnvios();
+            AbrirForm(form);
         }
     }
 }

@@ -30,45 +30,16 @@ namespace TP_Integrador
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.PrecioProductos,
-            this.CantProductos,
-            this.Descripcion});
-            this.dataGridView1.Location = new System.Drawing.Point(345, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(330, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 426);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID ";
-            this.ID.Name = "ID";
-            // 
-            // PrecioProductos
-            // 
-            this.PrecioProductos.HeaderText = "Precio";
-            this.PrecioProductos.Name = "PrecioProductos";
-            // 
-            // CantProductos
-            // 
-            this.CantProductos.HeaderText = "Cantidad Productos";
-            this.CantProductos.Name = "CantProductos";
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
+            this.dataGridView1.Size = new System.Drawing.Size(449, 294);
+            this.dataGridView1.TabIndex = 0;
             // 
             // frmComprar
             // 
@@ -78,6 +49,7 @@ namespace TP_Integrador
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmComprar";
             this.Text = "frmComprar";
+            this.Load += new System.EventHandler(this.frmComprar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -86,9 +58,5 @@ namespace TP_Integrador
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
     }
 }
