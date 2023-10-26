@@ -13,7 +13,7 @@ namespace DAL
     {
         //Data Source=090L6PC21 = AGUS Y JOAQUIN
         //Data Source=090L6PC22-10217
-        SqlConnection con = new SqlConnection("Data Source=090L6PC22-10217;Initial Catalog=TPIntegrador;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=090L6PC21-10217;Initial Catalog=TPIntegrador;Integrated Security=True");
        
         private void Conectar()
         {          
@@ -60,6 +60,9 @@ namespace DAL
             }
             DataTable Tabla = dataSet.Tables[tabla];
             return Tabla;
+
+
+
 
         }
 
