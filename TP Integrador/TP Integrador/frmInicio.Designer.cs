@@ -30,16 +30,18 @@ namespace TP_Integrador
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnComprar = new System.Windows.Forms.Button();
-            this.btnEnvios = new System.Windows.Forms.Button();
             this.btnReclamos = new System.Windows.Forms.Button();
+            this.btnEnvios = new System.Windows.Forms.Button();
+            this.btnComprar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVerConsultas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.btnVerConsultas);
             this.panel1.Controls.Add(this.btnReclamos);
             this.panel1.Controls.Add(this.btnEnvios);
             this.panel1.Controls.Add(this.btnComprar);
@@ -48,27 +50,6 @@ namespace TP_Integrador
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 70);
             this.panel1.TabIndex = 0;
-            // 
-            // btnComprar
-            // 
-            this.btnComprar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnComprar.Location = new System.Drawing.Point(0, 0);
-            this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(92, 70);
-            this.btnComprar.TabIndex = 0;
-            this.btnComprar.Text = "Comprar";
-            this.btnComprar.UseVisualStyleBackColor = true;
-            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
-            // 
-            // btnEnvios
-            // 
-            this.btnEnvios.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEnvios.Location = new System.Drawing.Point(92, 0);
-            this.btnEnvios.Name = "btnEnvios";
-            this.btnEnvios.Size = new System.Drawing.Size(92, 70);
-            this.btnEnvios.TabIndex = 1;
-            this.btnEnvios.Text = "Ver envio";
-            this.btnEnvios.UseVisualStyleBackColor = true;
             // 
             // btnReclamos
             // 
@@ -81,6 +62,27 @@ namespace TP_Integrador
             this.btnReclamos.UseVisualStyleBackColor = true;
             this.btnReclamos.Click += new System.EventHandler(this.btnReclamos_Click);
             // 
+            // btnEnvios
+            // 
+            this.btnEnvios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEnvios.Location = new System.Drawing.Point(92, 0);
+            this.btnEnvios.Name = "btnEnvios";
+            this.btnEnvios.Size = new System.Drawing.Size(92, 70);
+            this.btnEnvios.TabIndex = 1;
+            this.btnEnvios.Text = "Ver envio";
+            this.btnEnvios.UseVisualStyleBackColor = true;
+            // 
+            // btnComprar
+            // 
+            this.btnComprar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnComprar.Location = new System.Drawing.Point(0, 0);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(92, 70);
+            this.btnComprar.TabIndex = 0;
+            this.btnComprar.Text = "Comprar";
+            this.btnComprar.UseVisualStyleBackColor = true;
+            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -90,6 +92,16 @@ namespace TP_Integrador
             this.label1.Size = new System.Drawing.Size(204, 73);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
+            // 
+            // btnVerConsultas
+            // 
+            this.btnVerConsultas.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnVerConsultas.Location = new System.Drawing.Point(276, 0);
+            this.btnVerConsultas.Name = "btnVerConsultas";
+            this.btnVerConsultas.Size = new System.Drawing.Size(92, 70);
+            this.btnVerConsultas.TabIndex = 3;
+            this.btnVerConsultas.Text = "Ver Consultas";
+            this.btnVerConsultas.UseVisualStyleBackColor = true;
             // 
             // frmInicio
             // 
@@ -115,5 +127,6 @@ namespace TP_Integrador
         private System.Windows.Forms.Button btnEnvios;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVerConsultas;
     }
 }
