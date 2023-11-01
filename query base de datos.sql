@@ -3,12 +3,32 @@ GO
 USE TPIntegrador
 GO
 
+CREATE TABLE Usuarios
+(
+id_usuario INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+NombreDeUsuario varchar(50),
+Clave varchar(100),
+Rol varchar(50)
+)
+
+
 CREATE TABLE Clientes
 (
-id_cliente INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+id_cliente INT PRIMARY KEY REFERENCES Usuarios(id_usuario),
 Nombre varchar(50),
 Apellido varchar(50)
 )
+
+CREATE TABLE Empleados
+(
+id_empleado INT PRIMARY KEY REFERENCES Usuarios(id_usuario),
+Nombre varchar(50),
+Apellido varchar(50),
+Horario varchar(50),
+RolEmp varchar(50),
+Sueldo float
+)
+
 
 CREATE TABLE Reclamos
 (
@@ -46,22 +66,20 @@ MetodoPago varchar(50),
 Total float
 )
 
+Create TABLE Pedido_Producto
+(
+id_pedido INT FOREIGN KEY REFERENCES Pedidos(id_pedido),
+id_producto INT FOREIGN KEY REFERENCES Productos(id_producto),
+Cant int
+)
+
+
 CREATE TABLE Facturas
 (
 id_factura INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 id_pedido int FOREIGN KEY REFERENCES Pedidos(id_pedido),
 Encabezado varchar(50),
 Detalle varchar(50)
-)
-
-CREATE TABLE Empleados
-(
-id_empleado INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-Nombre varchar(50),
-Apellido varchar(50),
-Horario varchar(50),
-Rol varchar(50),
-Sueldo float
 )
 
 CREATE TABLE Envios
@@ -85,12 +103,25 @@ Horarios varchar(50),
 Costo float,
 )
 
-CREATE TABLE Usuarios
-(
-NombreDeUsuario varchar(50) PRIMARY KEY,
-Contraseña varchar(50),
-Rol varchar(50),
-)
 
-INSERT INTO Usuarios VALUES ('Joaquin','123','Cliente')
-INSERT INTO Usuarios VALUES ('Pepe','123','Empleado')
+
+CREATE PROCEDURE RegistrarUsuario
+	@nombreDeUsuario varchar(50),
+	@clave varchar(100),
+	@rol varchar(50)
+AS
+BEGIN
+	INSERT INTO Usuarios (NombreDeUsuario, Clave, Rol) VALUES (@nombreDeUsuario, @clave, @rol);
+END
+GO
+
+
+CREATE PROCEDURE AltaCliente
+@idCliente int,
+@nombre varchar(50),
+@apellido varchar(50)
+AS
+BEGIN
+	INSERT INTO Clientes VALUES (@idCliente, @nombre, @apellido);
+END
+GO

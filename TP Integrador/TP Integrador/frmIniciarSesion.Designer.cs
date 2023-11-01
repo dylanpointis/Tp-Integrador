@@ -107,6 +107,7 @@ namespace TP_Integrador
             this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.btnIniciarSesion);
             this.Name = "frmIniciarSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmIniciarSesion_Load);
             this.ResumeLayout(false);

@@ -13,22 +13,53 @@ namespace DAL
     {
         //Data Source=090L6PC21 = AGUS Y JOAQUIN
         //Data Source=090L6PC22-10217
-        SqlConnection con = new SqlConnection("Data Source=090L6PC21-10217;Initial Catalog=TPIntegrador;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-VGSNR3B;Initial Catalog=TPIntegrador;Integrated Security=True");
        
         private void Conectar()
         {          
             con.Open();
         }
 
+        SqlTransaction tran;
+
         //CONECTADO
-        
-        
+
+        public void EjecutarComando(string query)
+        {
+            try
+            {
+                Conectar();
+                tran = con.BeginTransaction();
+                SqlCommand command = new SqlCommand(query, con);
+                command.Transaction = tran;
+                command.ExecuteNonQuery();
+                tran.Commit();
+                con.Close();
+            }
+            catch (Exception ex) { tran.Rollback(); }
+        }
+
+        public void EjecutarProcAlmacenado(string nombreProc, SqlParameter[] parametros)
+        {
+            using (SqlCommand command = new SqlCommand(nombreProc, con))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                foreach (SqlParameter parametro in parametros)
+                {
+                    command.Parameters.Add(parametro);
+                }
+                Conectar();
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
 
 
         //DESCONECTADO
         DataSet dataSet;
         SqlDataAdapter adapter;
-        SqlTransaction tran;
+        
 
         public void CargarDataSet(string nombreTabla)
         {
@@ -60,10 +91,6 @@ namespace DAL
             }
             DataTable Tabla = dataSet.Tables[tabla];
             return Tabla;
-
-
-
-
         }
 
     }

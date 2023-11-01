@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Cliente: Usuario
+    public class Cliente
     {
-
-
-            
         public int id_Cliente { get; set; } 
 
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }
 
-        public Cliente(int id_cliente, string nombre, string apellido, string NombreUsuario, string Clave): base(NombreUsuario, Clave)
+        public Cliente(int id_cliente, string nombre, string apellido)
         {
             id_Cliente= id_cliente;
             Nombre= nombre;

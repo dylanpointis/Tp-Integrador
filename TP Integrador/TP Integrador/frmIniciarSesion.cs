@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using BE;
 using BLL;
 using System.Data;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace TP_Integrador
 {
@@ -24,28 +26,24 @@ namespace TP_Integrador
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Usuario user = new Usuario(txtNombreUsuario.Text, txtClave.Text);
-
-            (bool esValido, string rol) = bllUsuarios.VerificarUsuario(user.NombreUsuario, user.Clave);
-
+            (bool esValido, Usuario user) = bllUsuarios.VerificarUsuario(txtNombreUsuario.Text, txtClave.Text);
 
             if (esValido)
             {
-                user.Rol = rol;
                 frmInicio form = new frmInicio(user);
                 form.Show();
-   
             }
             else
             {
-                MessageBox.Show("No iniciaste sesion");
+                MessageBox.Show("No iniciaste sesión");
             }
             
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-
+            frmRegistrarse form = new frmRegistrarse();
+            form.Show();
         }
 
         private void frmIniciarSesion_Load(object sender, EventArgs e)
