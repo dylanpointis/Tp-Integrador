@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using System.Data;
 
 namespace TP_Integrador
 {
@@ -15,6 +17,13 @@ namespace TP_Integrador
         public frmReclamos()
         {
             InitializeComponent();
+        }
+
+        BLLReclamos bllReclamos = new BLLReclamos();
+
+        private void frmReclamos_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = bllReclamos.TraerTabla();
         }
     }
 }
