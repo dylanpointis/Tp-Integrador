@@ -27,6 +27,7 @@ namespace TP_Integrador
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             (bool esValido, Usuario user) = bllUsuarios.VerificarUsuario(txtNombreUsuario.Text, txtClave.Text);
+            user.IDUser = bllUsuarios.TraerId(txtNombreUsuario.Text);
 
             if (esValido)
             {

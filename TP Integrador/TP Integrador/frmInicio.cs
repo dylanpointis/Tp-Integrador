@@ -17,8 +17,12 @@ namespace TP_Integrador
         string nombreUsuario;
         string rol;
 
+        Usuario usuarioRecibido;
+
+
         public frmInicio(Usuario user)
         {
+            usuarioRecibido = user;
             nombreUsuario = user.NombreUsuario;
             rol = user.Rol;
             InitializeComponent();
@@ -52,7 +56,7 @@ namespace TP_Integrador
 
         private void btnReclamos_Click(object sender, EventArgs e)
         {
-            frmReclamos form = new frmReclamos();
+            frmReclamos form = new frmReclamos(usuarioRecibido);
             AbrirForm(form);
         }
 
