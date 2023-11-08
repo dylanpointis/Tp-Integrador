@@ -31,8 +31,10 @@ namespace TP_Integrador
 
             if (esValido)
             {
+                this.Hide(); //oculta el formulario actual
                 frmInicio form = new frmInicio(user);
                 form.Show();
+                form.FormClosing += CerrandoFormulario; //cuando se cierra el formulario Inicio ejecuta la funcion CerrandoFormulario que vuelve a mostrar el formulario actual
             }
             else
             {
@@ -51,6 +53,13 @@ namespace TP_Integrador
         {
             txtNombreUsuario.Text = "Joaquin";
             txtClave.Text = "123";
+        }
+
+        private void CerrandoFormulario(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+            //txtNombreUsuario.Text = "";
+            //txtClave.Text = "";
         }
     }
 }

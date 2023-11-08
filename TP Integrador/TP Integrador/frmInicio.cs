@@ -50,7 +50,7 @@ namespace TP_Integrador
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            frmComprar form = new frmComprar();
+            frmComprar form = new frmComprar(usuarioRecibido);
             AbrirForm(form);
         }
 

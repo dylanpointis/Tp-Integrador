@@ -11,17 +11,18 @@ namespace DAL
 {
     public class DalConexion
     {
-        //Data Source=090L6PC21 = AGUS Y JOAQUIN
-        //Data Source=090L6PC22-10217
-        SqlConnection con = new SqlConnection("Data Source=;Initial Catalog=TPIntegrador;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-VGSNR3B;Initial Catalog=TPIntegrador;Integrated Security=True");
        
         private void Conectar()
-        {          
-            con.Open();
+        {      
+            if(con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }     
         }
 
-        SqlTransaction tran;
 
+        SqlTransaction tran;
         //CONECTADO
 
         public void EjecutarComando(string query)
@@ -54,7 +55,15 @@ namespace DAL
             }
         }
 
+        public int EjecutarComandoYTraerID(string query)
+        {
+            Conectar();
+            SqlCommand command = new SqlCommand(query, con);
 
+            int idValor = Convert.ToInt32(command.ExecuteScalar());
+            con.Close();
+            return idValor;
+        }
 
         //DESCONECTADO
         DataSet dataSet;

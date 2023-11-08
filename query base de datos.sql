@@ -60,8 +60,7 @@ CREATE TABLE Pedidos
 (
 id_pedido INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 id_cliente int FOREIGN KEY REFERENCES Clientes(id_cliente),
-id_producto int FOREIGN KEY REFERENCES Productos(id_producto),
-Fecha DateTime,
+Fecha varchar(50),
 MetodoPago varchar(50),
 Total float
 )
@@ -103,7 +102,7 @@ Horarios varchar(50),
 Costo float,
 )
 
-
+GO
 
 CREATE PROCEDURE RegistrarUsuario
 	@nombreDeUsuario varchar(50),
