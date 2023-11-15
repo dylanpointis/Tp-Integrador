@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using BE;
 using System.Threading;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace TP_Integrador
 {
     public partial class frmReclamos : Form
     {
-        private int idUser;
+        private Usuario usuario;
 
-        public frmReclamos(Usuario user)
+        public frmReclamos(Usuario usuarioRecibido)
         {
-            idUser = user.IDUser;
+            usuario = usuarioRecibido;
             InitializeComponent();
         }
 
@@ -34,7 +34,7 @@ namespace TP_Integrador
         private void button1_Click(object sender, EventArgs e)
         {
             Reclamos reclamo = new Reclamos(textBox1.Text, comboBox1.Text);
-            bllReclamos.AgregarReclamos(idUser,reclamo);
+            bllReclamos.AgregarReclamos(usuario.IDUser, reclamo);
             ActualizarGrilla();
         }
 
@@ -43,13 +43,24 @@ namespace TP_Integrador
             dataGridView1.Rows.Clear();
             DataTable tabla = bllReclamos.TraerTabla();
 
-            foreach(DataRow row in tabla.Rows)
+            if(usuario.Rol == "Cliente") // SI ES UN CLIENTE SOLO MUESTRA SUS RECLAMOS
             {
-                if(Convert.ToInt32(row[1]) == idUser)
+                foreach (DataRow row in tabla.Rows)
+                {
+                    if (Convert.ToInt32(row[1]) == usuario.IDUser)
+                    {
+                        dataGridView1.Rows.Add(row.ItemArray);
+                    }
+                }
+            }
+            else // SI ES EMPLEADO O ADMIN MUESTRA TODOS LOS RECLAMOS
+            {
+                foreach (DataRow row in tabla.Rows)
                 {
                     dataGridView1.Rows.Add(row.ItemArray);
                 }
             }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

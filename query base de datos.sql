@@ -87,7 +87,7 @@ id_envio INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 id_pedido int FOREIGN KEY REFERENCES Pedidos(id_pedido),
 id_empleado int FOREIGN KEY REFERENCES Empleados(id_empleado),
 Estado varchar(50),
-FechaDeEnvio date,
+FechaDeEnvio varchar(50),
 Direccion varchar(50),
 Localidad varchar(50),
 OpcionEnvio varchar(50),
@@ -124,3 +124,8 @@ BEGIN
 	INSERT INTO Clientes VALUES (@idCliente, @nombre, @apellido);
 END
 GO
+
+
+Insert into Usuarios VALUES ('Joaquin','202cb962ac59075b964b07152d234b70','Cliente')
+Insert into Usuarios VALUES ('Empleado','202cb962ac59075b964b07152d234b70','Empleado')
+Insert into Usuarios VALUES ('Admin','202cb962ac59075b964b07152d234b70','Admin')

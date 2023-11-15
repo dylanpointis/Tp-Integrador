@@ -48,66 +48,114 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAdmin.cs">
+    <Compile Include="Forms\frmConsultarVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdmin.Designer.cs">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
+    <Compile Include="Forms\frmConsultarVentas.Designer.cs">
+      <DependentUpon>frmConsultarVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmComprar.cs">
+    <Compile Include="Forms\frmAdministrarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmComprar.Designer.cs">
+    <Compile Include="Forms\frmAdministrarUsuarios.Designer.cs">
+      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmComprar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmComprar.Designer.cs">
       <DependentUpon>frmComprar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEnvios.cs">
+    <Compile Include="Forms\frmEnvios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEnvios.Designer.cs">
+    <Compile Include="Forms\frmEnvios.Designer.cs">
       <DependentUpon>frmEnvios.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmIniciarSesion.cs">
+    <Compile Include="Forms\frmInfoEnvio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIniciarSesion.Designer.cs">
+    <Compile Include="Forms\frmInfoEnvio.Designer.cs">
+      <DependentUpon>frmInfoEnvio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmIniciarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmIniciarSesion.Designer.cs">
       <DependentUpon>frmIniciarSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInicio.cs">
+    <Compile Include="Forms\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicio.Designer.cs">
+    <Compile Include="Forms\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReclamos.cs">
+    <Compile Include="Forms\frmPagarTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReclamos.Designer.cs">
+    <Compile Include="Forms\frmPagarTarjeta.Designer.cs">
+      <DependentUpon>frmPagarTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPagarTransferencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPagarTransferencia.Designer.cs">
+      <DependentUpon>frmPagarTransferencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProgramarEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProgramarEnvios.Designer.cs">
+      <DependentUpon>frmProgramarEnvios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReclamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReclamos.Designer.cs">
       <DependentUpon>frmReclamos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistrarse.cs">
+    <Compile Include="Forms\frmRegistrarse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistrarse.Designer.cs">
+    <Compile Include="Forms\frmRegistrarse.Designer.cs">
       <DependentUpon>frmRegistrarse.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdmin.resx">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmConsultarVentas.resx">
+      <DependentUpon>frmConsultarVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmComprar.resx">
+    <EmbeddedResource Include="Forms\frmAdministrarUsuarios.resx">
+      <DependentUpon>frmAdministrarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmComprar.resx">
       <DependentUpon>frmComprar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmIniciarSesion.resx">
+    <EmbeddedResource Include="Forms\frmEnvios.resx">
+      <DependentUpon>frmEnvios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInfoEnvio.resx">
+      <DependentUpon>frmInfoEnvio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmIniciarSesion.resx">
       <DependentUpon>frmIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInicio.resx">
+    <EmbeddedResource Include="Forms\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReclamos.resx">
+    <EmbeddedResource Include="Forms\frmPagarTarjeta.resx">
+      <DependentUpon>frmPagarTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPagarTransferencia.resx">
+      <DependentUpon>frmPagarTransferencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProgramarEnvios.resx">
+      <DependentUpon>frmProgramarEnvios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReclamos.resx">
       <DependentUpon>frmReclamos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistrarse.resx">
+    <EmbeddedResource Include="Forms\frmRegistrarse.resx">
       <DependentUpon>frmRegistrarse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -141,6 +189,9 @@
       <Project>{b04906fd-82dd-460b-a49d-ada7828be5a1}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ControlesUsuario\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

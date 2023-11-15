@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TP_Integrador
 {
-    public partial class frmAdmin : Form
+    public partial class frmConsultarVentas : Form
     {
-        public frmAdmin()
+        public frmConsultarVentas()
         {
             InitializeComponent();
         }

@@ -9,7 +9,7 @@ using BE;
 
 namespace BLL
 {
-    public class BLLComprar
+    public class BLLPedidos
     {
         DalConexion dal = new DalConexion();
 
@@ -26,7 +26,7 @@ namespace BLL
             return Id;
         }
 
-        public void AgregarItem(int idPedido,Carrito item)
+        public void AgregarItem(int idPedido,Item item)
         {
             dal.EjecutarComando($"INSERT INTO Pedido_Producto VALUES ({idPedido}, {item.idProducto}, {item.cantidad})");
         }

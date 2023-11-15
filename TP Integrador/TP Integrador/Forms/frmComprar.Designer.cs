@@ -37,6 +37,8 @@ namespace TP_Integrador
             this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.grillaCarrito = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.cmbMetodoPago = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grillaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaCarrito)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +102,7 @@ namespace TP_Integrador
             this.btnFinalizarCompra.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnFinalizarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizarCompra.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizarCompra.Location = new System.Drawing.Point(11, 378);
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(11, 428);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
             this.btnFinalizarCompra.Size = new System.Drawing.Size(99, 30);
             this.btnFinalizarCompra.TabIndex = 6;
@@ -126,11 +128,34 @@ namespace TP_Integrador
             this.lblTotal.TabIndex = 8;
             this.lblTotal.Text = "Total: ";
             // 
+            // cmbMetodoPago
+            // 
+            this.cmbMetodoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMetodoPago.FormattingEnabled = true;
+            this.cmbMetodoPago.Items.AddRange(new object[] {
+            "Transferencia",
+            "Tarjeta"});
+            this.cmbMetodoPago.Location = new System.Drawing.Point(13, 401);
+            this.cmbMetodoPago.Name = "cmbMetodoPago";
+            this.cmbMetodoPago.Size = new System.Drawing.Size(121, 21);
+            this.cmbMetodoPago.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 382);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Método de pago";
+            // 
             // frmComprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 470);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbMetodoPago);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.grillaCarrito);
             this.Controls.Add(this.btnFinalizarCompra);
@@ -159,5 +184,7 @@ namespace TP_Integrador
         private System.Windows.Forms.Button btnFinalizarCompra;
         private System.Windows.Forms.DataGridView grillaCarrito;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.ComboBox cmbMetodoPago;
+        private System.Windows.Forms.Label label3;
     }
 }

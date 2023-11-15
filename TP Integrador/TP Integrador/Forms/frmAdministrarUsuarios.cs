@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP_Integrador
+namespace TP_Integrador.Forms
 {
-    public partial class frmEnvios : Form
+    public partial class frmAdministrarUsuarios : Form
     {
-        public frmEnvios()
+        public frmAdministrarUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void frmAdministrarUsuarios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

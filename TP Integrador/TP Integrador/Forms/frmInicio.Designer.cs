@@ -35,12 +35,16 @@ namespace TP_Integrador
             this.btnReclamos = new System.Windows.Forms.Button();
             this.btnEnvios = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
+            this.btnAdministrarUsuarios = new System.Windows.Forms.Button();
+            this.btnProgramarEnvios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.btnProgramarEnvios);
+            this.panel1.Controls.Add(this.btnAdministrarUsuarios);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnVerConsultas);
             this.panel1.Controls.Add(this.btnReclamos);
@@ -56,7 +60,8 @@ namespace TP_Integrador
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(595, 21);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(711, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 24);
             this.label1.TabIndex = 2;
@@ -106,11 +111,33 @@ namespace TP_Integrador
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
+            // btnAdministrarUsuarios
+            // 
+            this.btnAdministrarUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(368, 0);
+            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
+            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(92, 70);
+            this.btnAdministrarUsuarios.TabIndex = 5;
+            this.btnAdministrarUsuarios.Text = "Administrar usuarios";
+            this.btnAdministrarUsuarios.UseVisualStyleBackColor = true;
+            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
+            // 
+            // btnProgramarEnvios
+            // 
+            this.btnProgramarEnvios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnProgramarEnvios.Location = new System.Drawing.Point(460, 0);
+            this.btnProgramarEnvios.Name = "btnProgramarEnvios";
+            this.btnProgramarEnvios.Size = new System.Drawing.Size(92, 70);
+            this.btnProgramarEnvios.TabIndex = 6;
+            this.btnProgramarEnvios.Text = "Programar envíos";
+            this.btnProgramarEnvios.UseVisualStyleBackColor = true;
+            this.btnProgramarEnvios.Click += new System.EventHandler(this.btnProgramarEnvios_Click);
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 488);
+            this.ClientSize = new System.Drawing.Size(1078, 547);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "frmInicio";
@@ -131,5 +158,7 @@ namespace TP_Integrador
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnVerConsultas;
+        private System.Windows.Forms.Button btnAdministrarUsuarios;
+        private System.Windows.Forms.Button btnProgramarEnvios;
     }
 }

@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carrito.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Envios.cs" />
     <Compile Include="Pedidos.cs" />
     <Compile Include="Reclamos.cs" />
     <Compile Include="Usuario.cs" />

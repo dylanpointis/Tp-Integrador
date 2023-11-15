@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLCliente.cs" />
-    <Compile Include="BLLComprar.cs" />
+    <Compile Include="BLLPedidos.cs" />
+    <Compile Include="BLLEnvios.cs" />
     <Compile Include="BLLReclamos.cs" />
     <Compile Include="BLLUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

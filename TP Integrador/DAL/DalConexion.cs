@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BE;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace DAL
 {
@@ -102,5 +103,17 @@ namespace DAL
             return Tabla;
         }
 
+        public DataTable traerTablaQuery(string query)
+        {
+            Conectar();
+
+            SqlCommand command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable tabla = new DataTable();
+            tabla.Load(reader);
+
+            con.Close();
+            return tabla;
+        }
     }
 }

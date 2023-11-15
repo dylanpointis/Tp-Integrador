@@ -23,8 +23,8 @@ namespace TP_Integrador
             InitializeComponent();
         }
 
-        public BLLComprar bll = new BLLComprar();
-        private List<Carrito> listaCarrito = new List<Carrito>();
+        public BLLPedidos bll = new BLLPedidos();
+        private List<Item> listaCarrito = new List<Item>();
 
         private void frmComprar_Load(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace TP_Integrador
 
                 if (cantComprada <= cantStock)
                 {
-                    Carrito item = new Carrito(idProducto, cantComprada);
+                    Item item = new Item(idProducto, cantComprada);
                     item.precio = precio;
 
                     listaCarrito.Add(item);
@@ -63,7 +63,7 @@ namespace TP_Integrador
         private decimal ObtenerTotal()
         {
             decimal total = 0;
-            foreach (Carrito item in listaCarrito)
+            foreach (Item item in listaCarrito)
             {
                 total += item.total;
             }
@@ -76,7 +76,7 @@ namespace TP_Integrador
             try
             {
                 int idProducto = Convert.ToInt32(grillaCarrito.CurrentRow.Cells[0].Value);
-                Carrito carritoAEliminar = listaCarrito.FirstOrDefault(c => c.idProducto == idProducto);
+                Item carritoAEliminar = listaCarrito.FirstOrDefault(c => c.idProducto == idProducto);
 
                 if (carritoAEliminar != null)
                 {
@@ -99,23 +99,47 @@ namespace TP_Integrador
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
-          
-                Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("yyyy-dd HH:mm"), "Tarjeta credito", ObtenerTotal());
-
-                //Inserta un nuevo pedido y guarda el ID de la primary key auto incrementable
-                int idPedido = bll.AgregarPedido(pedido);
-
-                foreach (Carrito item in listaCarrito)
+            if (listaCarrito.Count > 0)
+            {
+                if(cmbMetodoPago.Text != "")
                 {
-                    bll.AgregarItem(idPedido, item);
+                    Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("yyyy-dd-mm HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
+                    if (cmbMetodoPago.Text == "Transferencia")
+                    {
+                        frmPagarTransferencia frm = new frmPagarTransferencia(pedido);
+                        frm.Show();
+                    }
+                    if(cmbMetodoPago.Text == "Tarjeta")
+                    {
+                        frmPagarTarjeta frm = new frmPagarTarjeta(pedido, listaCarrito);
+                        frm.Show();
+                    }
+
+                    listaCarrito.Clear();//Limpia la lista una vez realizada la compra
+                    ActualizarGrilla();
                 }
+                else { MessageBox.Show("Seleccione un método de pago"); }
 
-                listaCarrito.Clear(); //Limpia la lista una vez realizada la compra
-                ActualizarGrilla();
-
-                MessageBox.Show("Compra exitosa");
-           
-            
+            }
+            else { MessageBox.Show("Agregue productos al carrito para comprar"); }
         }
+
+
+        /*
+         Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("yyyy-dd-mm HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
+
+                    //Inserta un nuevo pedido y guarda el ID de la primary key auto incrementable
+                    int idPedido = bll.AgregarPedido(pedido);
+
+                    foreach (Item item in listaCarrito)
+                    {
+                        bll.AgregarItem(idPedido, item);
+                    }
+
+                    listaCarrito.Clear(); //Limpia la lista una vez realizada la compra
+                    ActualizarGrilla();
+
+                    MessageBox.Show("Compra exitosa");
+         **/
     }
 }

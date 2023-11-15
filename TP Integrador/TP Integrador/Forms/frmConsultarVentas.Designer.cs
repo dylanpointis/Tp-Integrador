@@ -1,6 +1,6 @@
 ﻿namespace TP_Integrador
 {
-    partial class frmAdmin
+    partial class frmConsultarVentas
     {
         /// <summary>
         /// Required designer variable.

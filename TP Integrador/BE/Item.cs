@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Carrito
+    public class Item
     {
         public int idProducto { get; set; }
         public int cantidad { get; set; }
@@ -18,7 +18,7 @@ namespace BE
             get { return precio * cantidad; }
         }
 
-        public Carrito(int idProducto, int cantidad)
+        public Item(int idProducto, int cantidad)
         {
             this.idProducto = idProducto;
             this.cantidad = cantidad;
