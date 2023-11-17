@@ -42,7 +42,7 @@ namespace TP_Integrador
         private void txtTitular_KeyPress(object sender, KeyPressEventArgs e)
         {
             //EXPRESION REGULAR PARA SOLO LETRAS
-            Regex regex = new Regex(@"[^a-zA-Z\b]"); // \b es para la tecla Borrar
+            Regex regex = new Regex(@"[^a-zA-Z\b\s]"); // \b es para la tecla Borrar \s patra la barra espaciadora
             if (regex.IsMatch(e.KeyChar.ToString()))
             {
                 e.Handled = true;

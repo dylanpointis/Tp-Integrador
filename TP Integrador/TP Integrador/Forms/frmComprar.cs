@@ -91,7 +91,7 @@ namespace TP_Integrador
         private void ActualizarGrilla()
         {
             grillaProductos.DataSource = null;
-            grillaProductos.DataSource = bll.traerTabla();
+            grillaProductos.DataSource = bll.traerTablaProductos();
 
             grillaCarrito.DataSource = null;
             grillaCarrito.DataSource = listaCarrito;

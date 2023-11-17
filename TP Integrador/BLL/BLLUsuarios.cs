@@ -16,6 +16,12 @@ namespace BLL
     {
         DalConexion dal = new DalConexion();
 
+        public DataTable traerTabla()
+        {
+            DataTable dt = dal.TraerTabla("Usuarios");
+            return dt;
+        }
+
         public void RegistrarUsuario(string username, string password, string rol)
         {
 
@@ -32,6 +38,13 @@ namespace BLL
             //$"INSERT INTO Usuarios (NombreDeUsuario, Clave, Salt) VALUES (@NombreDeUsuario, @Clave, @Salt)";
             dal.EjecutarProcAlmacenado("RegistrarUsuario", parametros);
         }
+
+        public void BajaUsuario(int id)
+        {
+            dal.EjecutarComando($"delete from Usuarios where id_usuario = {id}");
+        }
+
+
 
         //Encriptar password con metodo MD5
         private string HashPassword(string clave)

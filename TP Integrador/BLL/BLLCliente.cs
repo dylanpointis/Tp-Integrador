@@ -14,6 +14,12 @@ namespace BLL
     {
 
         DalConexion dal = new DalConexion();
+
+        public void BajaCliente(int id)
+        {
+            dal.EjecutarComando($"delete from Clientes where id_cliente = {id}");
+        }
+
         public void RegistrarCliente(Cliente cli)
         {
             SqlParameter[] parametros = new SqlParameter[]

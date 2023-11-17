@@ -105,6 +105,8 @@
             // 
             // txtFecha
             // 
+            this.txtFecha.CustomFormat = "MM-yy";
+            this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtFecha.Location = new System.Drawing.Point(64, 194);
             this.txtFecha.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             this.txtFecha.Name = "txtFecha";

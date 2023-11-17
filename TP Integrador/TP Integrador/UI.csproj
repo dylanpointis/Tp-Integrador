@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmAltaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAltaEmpleado.Designer.cs">
+      <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmConsultarVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmAltaEmpleado.resx">
+      <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConsultarVentas.resx">
       <DependentUpon>frmConsultarVentas.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,10 +23,22 @@ namespace TP_Integrador
             cargarGrafico();
         }
 
+        BLLPedidos bllPedidos = new BLLPedidos();
+
         private void cargarGrafico()
         {
-            double[] yValores = { 12, 23, 10.2, 18.7, 8.5, 1 , 7 , 8 ,9 , 10 , 11 ,12   };
-            string[] xValores = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+            DataTable tabla = bllPedidos.traerTabla();
+
+            double[] yValores = new double[tabla.Rows.Count];
+            string[] xValores = new string[tabla.Rows.Count];
+
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                yValores[i] = Convert.ToDouble(tabla.Rows[i]["Total"]);
+                xValores[i] = Convert.ToString(tabla.Rows[i]["id_pedido"]);
+            }
+
+            //string[] xValores = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
             chart1.Series[0].Points.DataBindXY(xValores, yValores);
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
         }

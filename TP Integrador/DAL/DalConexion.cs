@@ -12,7 +12,7 @@ namespace DAL
 {
     public class DalConexion
     {
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-VGSNR3B;Initial Catalog=TPIntegrador;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=090L3PC08-79692;Initial Catalog=TPIntegrador;Integrated Security=True");
        
         private void Conectar()
         {      
