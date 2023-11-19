@@ -22,6 +22,7 @@ namespace TP_Integrador.Forms
         }
 
         BLLProductos bllProductos = new BLLProductos();
+        BLLProveedores bllProv = new BLLProveedores();
         private void frmProductos_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
@@ -31,6 +32,7 @@ namespace TP_Integrador.Forms
         public void ActualizarGrilla()
         {
             grillaProductos.DataSource = bllProductos.traerTabla();
+            grillaProveedores.DataSource = bllProv.traerTabla();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -40,7 +42,8 @@ namespace TP_Integrador.Forms
                 Producto prod = new Producto(Convert.ToDouble(numPrecio.Value), 0, txtDescripcion.Text);
                 bllProductos.AltaProducto(prod);
                 ActualizarGrilla();
-            }          
+            }
+            else { MessageBox.Show("Ingrese los datos en los campos"); }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -49,7 +52,43 @@ namespace TP_Integrador.Forms
             {
                 int idProd = Convert.ToInt32(grillaProductos.CurrentRow.Cells[0].Value);
                 bllProductos.BajaProducto(idProd);
-            }catch(Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
+                ActualizarGrilla();
+            }
+            catch(Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idProd = Convert.ToInt32(grillaProductos.CurrentRow.Cells[0].Value);
+                Producto prod = new Producto(Convert.ToDouble(numPrecio.Value), 0, txtDescripcion.Text);
+                prod.id_producto = idProd;
+                bllProductos.EditarProducto(prod);
+                ActualizarGrilla();
+            }
+            catch (Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
+        }
+
+        private void btnSolicitarStock_Click(object sender, EventArgs e)
+        {
+            if(grillaProveedores.SelectedRows.Count > 0)
+            {
+                string nombre = grillaProveedores.CurrentRow.Cells[1].Value.ToString();
+                int NumTel = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[2].Value);
+                double Precio = Convert.ToDouble(grillaProveedores.CurrentRow.Cells[3].Value);
+
+                Proveedor prov = new Proveedor(nombre, NumTel, Precio);
+                prov.id_proveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
+
+                frmSolicitarStock frm = new frmSolicitarStock(prov);
+                frm.Show();
+
+                ActualizarGrilla();
+            }
+            else { MessageBox.Show("Seleccione un proveedor para solicitar Stock"); }
+            
+            
         }
     }
 }

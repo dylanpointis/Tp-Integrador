@@ -66,6 +66,17 @@ namespace DAL
             return idValor;
         }
 
+
+        public int ConsultarNumero(string query)
+        {
+            Conectar();
+            SqlCommand command = new SqlCommand(query, con);
+
+            int numero = Convert.ToInt32(command.ExecuteScalar());
+            con.Close();
+            return numero;
+        }
+
         //DESCONECTADO
         DataSet dataSet;
         SqlDataAdapter adapter;

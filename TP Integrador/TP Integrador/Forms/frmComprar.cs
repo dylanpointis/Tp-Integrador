@@ -107,7 +107,7 @@ namespace TP_Integrador
                     Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
                     if (cmbMetodoPago.Text == "Transferencia")
                     {
-                        frmPagarTransferencia frm = new frmPagarTransferencia(pedido);
+                        frmPagarTransferencia frm = new frmPagarTransferencia(pedido, listaCarrito);
                         frm.Show();
                     }
                     if(cmbMetodoPago.Text == "Tarjeta")
@@ -116,8 +116,8 @@ namespace TP_Integrador
                         frm.Show();
                     }
 
-                    listaCarrito.Clear();//Limpia la lista una vez realizada la compra
-                    ActualizarGrilla();
+                    //listaCarrito.Clear();//Limpia la lista una vez realizada la compra
+                    //ActualizarGrilla();
                 }
                 else { MessageBox.Show("Seleccione un método de pago"); }
 

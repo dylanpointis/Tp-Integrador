@@ -14,7 +14,7 @@ namespace TP_Integrador
     public partial class frmPagarTransferencia : Form
     {
         Pedidos pedido;
-        public frmPagarTransferencia(Pedidos pedidoRecibido)
+        public frmPagarTransferencia(Pedidos pedidoRecibido, List<Item> listaCarritoRecibida)
         {
             pedido = pedidoRecibido;
             InitializeComponent();

@@ -45,8 +45,10 @@
     <Compile Include="Item.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Envios.cs" />
+    <Compile Include="OrdenDeCompra.cs" />
     <Compile Include="Pedidos.cs" />
     <Compile Include="Producto.cs" />
+    <Compile Include="Proveedor.cs" />
     <Compile Include="Reclamos.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

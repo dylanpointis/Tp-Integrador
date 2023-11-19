@@ -44,67 +44,74 @@ namespace TP_Integrador
         }
 
 
-        private void btnComprar_Click(object sender, EventArgs e)
-        {
-            frmComprar form = new frmComprar(user);
-            AbrirForm(form);
-        }
 
-        private void btnReclamos_Click(object sender, EventArgs e)
-        {
-            frmReclamos form = new frmReclamos(user);
-            AbrirForm(form);
-        }
-
- 
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
             label1.Text = $"Bienvenido {user.Rol} {user.NombreUsuario}";
-            if(user.Rol == "Empleado")
+            if (user.Rol == "Empleado")
             {
                 btnComprar.Visible = false;
-                btnVerConsultas.Visible = false;
+                btnConsultarVentas.Visible = false;
                 btnAdministrarUsuarios.Visible = false;
-                btnEnvios.Visible = false;
+                btnVerEnvio.Visible = false;
             }
             if (user.Rol == "Cliente")
             {
                 btnProductos.Visible = false;
                 btnProgramarEnvios.Visible = false;
-                btnVerConsultas.Visible = false;
+                btnConsultarVentas.Visible = false;
                 btnAdministrarUsuarios.Visible = false;
+                btnProveedores.Visible = false;
             }
         }
 
-        private void btnVerConsultas_Click(object sender, EventArgs e)
+        private void btnComprar_Click_1(object sender, EventArgs e)
         {
-            frmConsultarVentas admin = new frmConsultarVentas();
-            AbrirForm(admin);
+            frmComprar form = new frmComprar(user);
+            AbrirForm(form);
         }
 
-        private void btnEnvios_Click(object sender, EventArgs e)
+        private void btnVerEnvio_Click(object sender, EventArgs e)
         {
             frmEnvios form = new frmEnvios(user);
             AbrirForm(form);
         }
 
-        private void btnProgramarEnvios_Click(object sender, EventArgs e)
+        private void btnProgramarEnvios_Click_1(object sender, EventArgs e)
         {
             frmProgramarEnvios form = new frmProgramarEnvios(user);
             AbrirForm(form);
         }
 
-        private void btnAdministrarUsuarios_Click(object sender, EventArgs e)
+        private void btnProductos_Click_1(object sender, EventArgs e)
+        {
+            frmProductos form = new frmProductos(user);
+            AbrirForm(form);
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedores form = new frmProveedores();
+            AbrirForm(form);
+        }
+
+        private void btnAdministrarUsuarios_Click_1(object sender, EventArgs e)
         {
             frmAdministrarUsuarios form = new frmAdministrarUsuarios();
             AbrirForm(form);
         }
 
-        private void btnProductos_Click(object sender, EventArgs e)
+        private void btnReclamos_Click_1(object sender, EventArgs e)
         {
-            frmProductos form = new frmProductos(user);
+            frmReclamos form = new frmReclamos(user);
             AbrirForm(form);
+        }
+
+        private void btnConsultarVentas_Click(object sender, EventArgs e)
+        {
+            frmConsultarVentas admin = new frmConsultarVentas();
+            AbrirForm(admin);
         }
     }
 }

@@ -46,15 +46,6 @@ CantStock int,
 Descripcion varchar(50)
 )
 
-CREATE TABLE Proveedores
-(
-id_proveedor INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-id_producto int FOREIGN KEY REFERENCES Productos(id_producto),
-Nombre varchar(50),
-NumTel int,
-Precio float
-)
-
 CREATE TABLE Pedidos
 (
 id_pedido INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -71,6 +62,32 @@ id_producto INT FOREIGN KEY REFERENCES Productos(id_producto),
 Cant int
 )
 
+
+CREATE TABLE Proveedores
+(
+id_proveedor INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+Nombre varchar(50),
+NumTel int,
+Precio float
+)
+
+CREATE TABLE OrdenDeCompra
+(
+id_proveedor INT FOREIGN KEY REFERENCES Proveedores(id_proveedor),
+id_producto INT FOREIGN KEY REFERENCES Productos(id_producto),
+CantAReponer int,
+FechaDeEntrega varchar(50),
+LugarDeEntrega varchar(50)
+)
+
+
+CREATE TABLE Descuentos
+(
+id_proveedor INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+id_producto INT FOREIGN KEY REFERENCES Productos(id_producto),
+PorcentajeDescuento float,
+Duracion varchar(50)
+)
 
 CREATE TABLE Facturas
 (
@@ -132,6 +149,16 @@ CREATE PROCEDURE AltaProducto
 AS
 BEGIN
 	INSERT INTO Productos VALUES (@Precio, 0, @Descripcion);
+END
+GO
+
+CREATE PROCEDURE EditarProducto
+@id_producto int,
+@Precio float,
+@Descripcion varchar(50)
+AS
+BEGIN
+	UPDATE Productos set Precio = @Precio, Descripcion = @Descripcion where id_producto = @id_producto;
 END
 GO
 

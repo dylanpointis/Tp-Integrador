@@ -28,12 +28,15 @@ namespace TP_Integrador.Forms
         private void frmProgramarEnvios_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
+            grillaEnvios.Columns[0].Width = 50; grillaEnvios.Columns[1].Width = 50; grillaEnvios.Columns[2].Width = 50; grillaEnvios.Columns[3].Width = 50; grillaLogistica.Columns[0].Width = 50;
             dateTimePicker1.MinDate = DateTime.Today;
         }
 
         private void btnProgramarEnvio_Click(object sender, EventArgs e)
         {
             //ID EMPLEADO, ID_LOGISTICA, ESTADO A "Esperando preparación", Fecha de envío
+            MessageBox.Show(txtFecha.Text);
+            
             try
             {
                 int idLogistica = Convert.ToInt32(grillaLogistica.CurrentRow.Cells[0].Value);

@@ -93,7 +93,7 @@ namespace TP_Integrador
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(99, 30);
             this.btnQuitar.TabIndex = 5;
-            this.btnQuitar.Text = "Quita del carrito";
+            this.btnQuitar.Text = "Quitar del carrito";
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 

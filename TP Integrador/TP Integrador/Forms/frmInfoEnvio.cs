@@ -27,6 +27,7 @@ namespace TP_Integrador
 
         BLLPedidos bllPedido = new BLLPedidos();
         BLLEnvios bllEnvios = new BLLEnvios();
+        BLLProductos bllProductos = new BLLProductos();
 
 
         private void cmbOpcion_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,13 +52,16 @@ namespace TP_Integrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
             //Inserta un nuevo pedido y guarda el ID de la primary key auto incrementable
             int idPedido = bllPedido.AgregarPedido(pedido);
 
             foreach (Item item in listaCarrito)
             {
                 bllPedido.AgregarItem(idPedido, item);
+
+                //Reduce el stock del producto
+                int cantStock = bllProductos.ConsultarCantStock(item.idProducto);
+                bllProductos.EditarStock(item.idProducto, cantStock - item.cantidad );
             }
 
             if(cmbOpcion.Text == "Envío a domicilio")

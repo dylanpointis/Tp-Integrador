@@ -28,6 +28,7 @@ namespace TP_Integrador
 
         private void frmReclamos_Load(object sender, EventArgs e)
         {
+            dataGridView1.Columns[3].Width = 270;
             ActualizarGrilla();
         }
 

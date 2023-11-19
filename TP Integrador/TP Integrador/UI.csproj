@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlesUsuario\textBoxFecha.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlesUsuario\textBoxFecha.Designer.cs">
+      <DependentUpon>textBoxFecha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAltaEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     <Compile Include="Forms\frmProgramarEnvios.Designer.cs">
       <DependentUpon>frmProgramarEnvios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmReclamos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,8 +144,17 @@
     <Compile Include="Forms\frmRegistrarse.Designer.cs">
       <DependentUpon>frmRegistrarse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSolicitarStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSolicitarStock.Designer.cs">
+      <DependentUpon>frmSolicitarStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ControlesUsuario\textBoxFecha.resx">
+      <DependentUpon>textBoxFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAltaEmpleado.resx">
       <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,11 +191,17 @@
     <EmbeddedResource Include="Forms\frmProgramarEnvios.resx">
       <DependentUpon>frmProgramarEnvios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmReclamos.resx">
       <DependentUpon>frmReclamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRegistrarse.resx">
       <DependentUpon>frmRegistrarse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSolicitarStock.resx">
+      <DependentUpon>frmSolicitarStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,8 +235,6 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ControlesUsuario\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

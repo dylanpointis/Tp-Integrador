@@ -34,6 +34,7 @@
             this.grillaLogistica = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtFecha = new TP_Integrador.ControlesUsuario.textBoxFecha();
             ((System.ComponentModel.ISupportInitialize)(this.grillaEnvios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaLogistica)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             this.grillaLogistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaLogistica.Location = new System.Drawing.Point(751, 56);
             this.grillaLogistica.Name = "grillaLogistica";
-            this.grillaLogistica.Size = new System.Drawing.Size(313, 289);
+            this.grillaLogistica.Size = new System.Drawing.Size(369, 289);
             this.grillaLogistica.TabIndex = 4;
             // 
             // label1
@@ -92,11 +93,19 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 7;
             // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(271, 381);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(121, 23);
+            this.txtFecha.TabIndex = 8;
+            // 
             // frmProgramarEnvios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 470);
+            this.ClientSize = new System.Drawing.Size(1132, 470);
+            this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -121,5 +130,6 @@
         private System.Windows.Forms.DataGridView grillaLogistica;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private ControlesUsuario.textBoxFecha txtFecha;
     }
 }

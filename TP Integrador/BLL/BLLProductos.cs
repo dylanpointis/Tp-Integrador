@@ -22,7 +22,7 @@ namespace BLL
 
         public void AltaProducto(Producto prod)
         {
-            SqlParameter[] parametros = new SqlParameter[]
+           SqlParameter[] parametros = new SqlParameter[]
            {
                 new SqlParameter("@Precio", prod.Precio),
                 new SqlParameter("@Descripcion", prod.Descripcion)
@@ -34,6 +34,34 @@ namespace BLL
         public void BajaProducto(int idProd)
         {
             dal.EjecutarComando($"DELETE FROM Productos where id_producto = {idProd}");
+        }
+
+        public void EditarProducto(Producto prod)
+        {
+           SqlParameter[] parametros = new SqlParameter[]
+           {
+               new SqlParameter("@id_producto", prod.id_producto),
+                new SqlParameter("@Precio", prod.Precio),
+                new SqlParameter("@Descripcion", prod.Descripcion)
+           };
+
+            dal.EjecutarProcAlmacenado("EditarProducto", parametros);
+        }
+
+        public void EditarStock(int idProd, int cantStock)
+        {
+            dal.EjecutarComando($"update Productos set CantStock = {cantStock} where id_producto = {idProd};");
+        }
+
+        public void AgregarItemOrdenCompra(int id_proveedor, OrdenDeCompra item)
+        {
+            dal.EjecutarComando($"INSERT INTO OrdenDeCompra VALUES ({id_proveedor}, {item.idProducto}, {item.CantAReponer}, '{item.FechaEntrga}', '{item.LugarEntrega}')");
+        }
+
+        public int ConsultarCantStock(int idProd)
+        {
+            int CantStock = dal.ConsultarNumero($"SELECT CantStock from Productos where id_producto = {idProd}");
+            return CantStock;
         }
     }
 }
