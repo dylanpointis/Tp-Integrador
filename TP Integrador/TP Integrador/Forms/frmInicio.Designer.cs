@@ -30,19 +30,21 @@ namespace TP_Integrador
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnProgramarEnvios = new System.Windows.Forms.Button();
+            this.btnAdministrarUsuarios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVerConsultas = new System.Windows.Forms.Button();
             this.btnReclamos = new System.Windows.Forms.Button();
             this.btnEnvios = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.btnAdministrarUsuarios = new System.Windows.Forms.Button();
-            this.btnProgramarEnvios = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.btnProductos);
             this.panel1.Controls.Add(this.btnProgramarEnvios);
             this.panel1.Controls.Add(this.btnAdministrarUsuarios);
             this.panel1.Controls.Add(this.label1);
@@ -56,12 +58,34 @@ namespace TP_Integrador
             this.panel1.Size = new System.Drawing.Size(1078, 70);
             this.panel1.TabIndex = 0;
             // 
+            // btnProgramarEnvios
+            // 
+            this.btnProgramarEnvios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnProgramarEnvios.Location = new System.Drawing.Point(460, 0);
+            this.btnProgramarEnvios.Name = "btnProgramarEnvios";
+            this.btnProgramarEnvios.Size = new System.Drawing.Size(92, 70);
+            this.btnProgramarEnvios.TabIndex = 6;
+            this.btnProgramarEnvios.Text = "Programar envíos";
+            this.btnProgramarEnvios.UseVisualStyleBackColor = true;
+            this.btnProgramarEnvios.Click += new System.EventHandler(this.btnProgramarEnvios_Click);
+            // 
+            // btnAdministrarUsuarios
+            // 
+            this.btnAdministrarUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(368, 0);
+            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
+            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(92, 70);
+            this.btnAdministrarUsuarios.TabIndex = 5;
+            this.btnAdministrarUsuarios.Text = "Administrar usuarios";
+            this.btnAdministrarUsuarios.UseVisualStyleBackColor = true;
+            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(711, 21);
+            this.label1.Location = new System.Drawing.Point(753, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 24);
             this.label1.TabIndex = 2;
@@ -111,27 +135,16 @@ namespace TP_Integrador
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
-            // btnAdministrarUsuarios
+            // btnProductos
             // 
-            this.btnAdministrarUsuarios.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAdministrarUsuarios.Location = new System.Drawing.Point(368, 0);
-            this.btnAdministrarUsuarios.Name = "btnAdministrarUsuarios";
-            this.btnAdministrarUsuarios.Size = new System.Drawing.Size(92, 70);
-            this.btnAdministrarUsuarios.TabIndex = 5;
-            this.btnAdministrarUsuarios.Text = "Administrar usuarios";
-            this.btnAdministrarUsuarios.UseVisualStyleBackColor = true;
-            this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click);
-            // 
-            // btnProgramarEnvios
-            // 
-            this.btnProgramarEnvios.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnProgramarEnvios.Location = new System.Drawing.Point(460, 0);
-            this.btnProgramarEnvios.Name = "btnProgramarEnvios";
-            this.btnProgramarEnvios.Size = new System.Drawing.Size(92, 70);
-            this.btnProgramarEnvios.TabIndex = 6;
-            this.btnProgramarEnvios.Text = "Programar envíos";
-            this.btnProgramarEnvios.UseVisualStyleBackColor = true;
-            this.btnProgramarEnvios.Click += new System.EventHandler(this.btnProgramarEnvios_Click);
+            this.btnProductos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnProductos.Location = new System.Drawing.Point(552, 0);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(92, 70);
+            this.btnProductos.TabIndex = 7;
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // frmInicio
             // 
@@ -160,5 +173,6 @@ namespace TP_Integrador
         private System.Windows.Forms.Button btnVerConsultas;
         private System.Windows.Forms.Button btnAdministrarUsuarios;
         private System.Windows.Forms.Button btnProgramarEnvios;
+        private System.Windows.Forms.Button btnProductos;
     }
 }

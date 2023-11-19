@@ -22,6 +22,7 @@ namespace TP_Integrador
         }
 
         BLLEnvios bllEnvios = new BLLEnvios();
+        
 
         private void frmEnvios_Load(object sender, EventArgs e)
         {

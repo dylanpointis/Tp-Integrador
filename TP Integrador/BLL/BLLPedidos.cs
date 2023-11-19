@@ -13,12 +13,6 @@ namespace BLL
     {
         DalConexion dal = new DalConexion();
 
-        public DataTable traerTablaProductos()
-        {
-            DataTable dt = dal.TraerTabla("Productos");
-            return dt;
-        }
-
         public DataTable traerTabla()
         {
             DataTable dt = dal.TraerTabla("Pedidos");

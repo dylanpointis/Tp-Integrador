@@ -25,7 +25,6 @@ id_empleado INT PRIMARY KEY REFERENCES Usuarios(id_usuario),
 Nombre varchar(50),
 Apellido varchar(50),
 Horario varchar(50),
-RolEmp varchar(50),
 Sueldo float
 )
 
@@ -81,11 +80,20 @@ Encabezado varchar(50),
 Detalle varchar(50)
 )
 
+CREATE TABLE Logistica
+(
+id_logistica INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+Zona varchar(50),
+Horarios varchar(50),
+Costo float,
+)
+
 CREATE TABLE Envios
 (
 id_envio INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 id_pedido int FOREIGN KEY REFERENCES Pedidos(id_pedido),
 id_empleado int FOREIGN KEY REFERENCES Empleados(id_empleado),
+id_logistica int FOREIGN KEY REFERENCES Logistica(id_logistica),
 Estado varchar(50),
 FechaDeEnvio varchar(50),
 Direccion varchar(50),
@@ -93,14 +101,6 @@ Localidad varchar(50),
 OpcionEnvio varchar(50),
 )
 
-CREATE TABLE Logistica
-(
-id_logistica INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-id_envio int FOREIGN KEY REFERENCES Envios(id_envio),
-Zona varchar(50),
-Horarios varchar(50),
-Costo float,
-)
 
 GO
 
@@ -126,6 +126,22 @@ END
 GO
 
 
+CREATE PROCEDURE AltaProducto
+@Precio float,
+@Descripcion varchar(50)
+AS
+BEGIN
+	INSERT INTO Productos VALUES (@Precio, 0, @Descripcion);
+END
+GO
+
+
 Insert into Usuarios VALUES ('Joaquin','202cb962ac59075b964b07152d234b70','Cliente')
 Insert into Usuarios VALUES ('Empleado','202cb962ac59075b964b07152d234b70','Empleado')
 Insert into Usuarios VALUES ('Admin','202cb962ac59075b964b07152d234b70','Admin')
+
+Insert into Clientes VALUES (1,'Joaquin','Perez')
+Insert into Empleados VALUES (2,'Esteban','Rodriguez','6 hs', 250000)
+
+Insert into Productos VALUES (1500,60,'Coca-Cola');
+Insert into Productos VALUES (3000,20,'Pizza mozzarella');

@@ -99,16 +99,17 @@ namespace TP_Integrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 288);
+            this.ClientSize = new System.Drawing.Size(271, 265);
             this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.btnIniciarSesion);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(287, 304);
             this.Name = "frmIniciarSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmIniciarSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

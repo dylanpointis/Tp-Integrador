@@ -11,6 +11,9 @@ namespace BE
         public int id_envio { get; set; }
         public int id_pedido { get; set; }
         public int id_empleado { get; set; }
+
+        public int id_logistica { get; set; }
+
         public string estado { get; set; }
         public string fecha { get; set; }
         public string direccion { get; set; }

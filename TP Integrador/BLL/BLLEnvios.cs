@@ -26,9 +26,15 @@ namespace BLL
         }
 
 
-        public void AgregarEnvio(Envios envio) //ID EMPLEADO NULL PORQUE TODAVIA NO FUE PROGRAMADO POR UN EMPLEADO
+        public void AgregarEnvio(Envios envio) //ID EMPLEADO e ID LOGISTICA  NULL PORQUE TODAVIA NO FUE PROGRAMADO EL ENVIO
         {
-            dal.EjecutarComando($"INSERT INTO Envios VALUES ({envio.id_pedido}, null, '{envio.estado}','{envio.fecha}','{envio.direccion}','{envio.localidad}','{envio.opcionEnvio}')");
+            dal.EjecutarComando($"INSERT INTO Envios VALUES ({envio.id_pedido}, null, null, '{envio.estado}','{envio.fecha}','{envio.direccion}','{envio.localidad}','{envio.opcionEnvio}')");
+        }
+
+
+        public void ProgramarEnvio(int idEnvio, int iDEmpleado, int idLogistica, string Estado, string FechaEnvio)
+        {
+            dal.EjecutarComando($"update Envios SET id_empleado = {iDEmpleado}, id_logistica = {idLogistica}, Estado = '{Estado}', FechaDeEnvio = '{FechaEnvio}' WHERE id_envio = {idEnvio};");
         }
     }
 }

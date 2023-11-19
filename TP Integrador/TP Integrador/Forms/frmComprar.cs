@@ -23,7 +23,8 @@ namespace TP_Integrador
             InitializeComponent();
         }
 
-        public BLLPedidos bll = new BLLPedidos();
+        private BLLPedidos bllPedidos = new BLLPedidos();
+        private BLLProductos bllProductos = new BLLProductos();
         private List<Item> listaCarrito = new List<Item>();
 
         private void frmComprar_Load(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace TP_Integrador
         private void ActualizarGrilla()
         {
             grillaProductos.DataSource = null;
-            grillaProductos.DataSource = bll.traerTablaProductos();
+            grillaProductos.DataSource = bllProductos.traerTabla();
 
             grillaCarrito.DataSource = null;
             grillaCarrito.DataSource = listaCarrito;
@@ -103,7 +104,7 @@ namespace TP_Integrador
             {
                 if(cmbMetodoPago.Text != "")
                 {
-                    Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("yyyy-dd-mm HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
+                    Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
                     if (cmbMetodoPago.Text == "Transferencia")
                     {
                         frmPagarTransferencia frm = new frmPagarTransferencia(pedido);
