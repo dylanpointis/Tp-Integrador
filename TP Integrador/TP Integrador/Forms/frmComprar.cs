@@ -115,32 +115,15 @@ namespace TP_Integrador
                         frmPagarTarjeta frm = new frmPagarTarjeta(pedido, listaCarrito);
                         frm.Show();
                     }
+                    ActualizarGrilla();
 
                     //listaCarrito.Clear();//Limpia la lista una vez realizada la compra
-                    //ActualizarGrilla();
+
                 }
                 else { MessageBox.Show("Seleccione un método de pago"); }
 
             }
             else { MessageBox.Show("Agregue productos al carrito para comprar"); }
-        }
-
-
-        /*
-         Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("yyyy-dd-mm HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
-
-                    //Inserta un nuevo pedido y guarda el ID de la primary key auto incrementable
-                    int idPedido = bll.AgregarPedido(pedido);
-
-                    foreach (Item item in listaCarrito)
-                    {
-                        bll.AgregarItem(idPedido, item);
-                    }
-
-                    listaCarrito.Clear(); //Limpia la lista una vez realizada la compra
-                    ActualizarGrilla();
-
-                    MessageBox.Show("Compra exitosa");
-         **/
+        }    
     }
 }

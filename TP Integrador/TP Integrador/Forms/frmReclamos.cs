@@ -66,9 +66,17 @@ namespace TP_Integrador
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int idReclamo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            bllReclamos.EliminarReclamo(idReclamo);
-            ActualizarGrilla();
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas dar de baja el reclamo", "Dar de baja", MessageBoxButtons.YesNo);
+            if (MensajeSIoNO == DialogResult.Yes)
+            {
+                try
+                {
+                    int idReclamo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    bllReclamos.EliminarReclamo(idReclamo);
+                    ActualizarGrilla();
+                }catch(Exception ex) { MessageBox.Show("Error al eliminar el reclamo, asegurese de seleccionar uno en la grilla"); }
+               
+            }
         }
     }
 }

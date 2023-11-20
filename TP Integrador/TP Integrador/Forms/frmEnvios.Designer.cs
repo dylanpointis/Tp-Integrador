@@ -30,6 +30,7 @@
         {
             this.grillaEnvios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDarDeBaja = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grillaEnvios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,25 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Envios";
             // 
+            // btnDarDeBaja
+            // 
+            this.btnDarDeBaja.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDarDeBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDarDeBaja.ForeColor = System.Drawing.Color.White;
+            this.btnDarDeBaja.Location = new System.Drawing.Point(44, 383);
+            this.btnDarDeBaja.Name = "btnDarDeBaja";
+            this.btnDarDeBaja.Size = new System.Drawing.Size(92, 24);
+            this.btnDarDeBaja.TabIndex = 10;
+            this.btnDarDeBaja.Text = "Dar de baja";
+            this.btnDarDeBaja.UseVisualStyleBackColor = false;
+            this.btnDarDeBaja.Click += new System.EventHandler(this.btnDarDeBaja_Click);
+            // 
             // frmEnvios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 470);
+            this.Controls.Add(this.btnDarDeBaja);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grillaEnvios);
             this.Name = "frmEnvios";
@@ -71,5 +86,6 @@
 
         private System.Windows.Forms.DataGridView grillaEnvios;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDarDeBaja;
     }
 }

@@ -37,12 +37,18 @@ namespace TP_Integrador.Forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas dar de baja el proveedor", "Dar de baja", MessageBoxButtons.YesNo);
+            if (MensajeSIoNO == DialogResult.Yes)
+            {
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas editar el proveedor", "Editar", MessageBoxButtons.YesNo);
+            if (MensajeSIoNO == DialogResult.Yes)
+            {
+            }
         }
     }
 }

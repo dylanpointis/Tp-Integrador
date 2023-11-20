@@ -106,10 +106,9 @@ namespace DAL
 
         public DataTable TraerTabla(string tabla)
         {
-            if(dataSet == null)
-            {
-                CargarDataSet(tabla);
-            }
+
+            CargarDataSet(tabla);
+           
             DataTable Tabla = dataSet.Tables[tabla];
             return Tabla;
         }

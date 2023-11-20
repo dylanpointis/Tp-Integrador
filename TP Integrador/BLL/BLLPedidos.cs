@@ -30,5 +30,11 @@ namespace BLL
         {
             dal.EjecutarComando($"INSERT INTO Pedido_Producto VALUES ({idPedido}, {item.idProducto}, {item.cantidad})");
         }
+
+        public void DarBaja(int IdPedido)
+        {
+            dal.EjecutarComando($"DELETE FROM Pedido_Producto where id_pedido = {IdPedido}"); //Elimina de la tabla Intermedia Pedido_Producto
+            dal.EjecutarComando($"DELETE FROM Pedidos where id_pedido = {IdPedido}"); //Elimina de la tabla principal Pedidos        
+        }
     }
 }

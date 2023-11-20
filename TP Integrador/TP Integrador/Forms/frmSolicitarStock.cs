@@ -72,6 +72,7 @@ namespace TP_Integrador.Forms
                     bllProductos.EditarStock(item.idProducto, item.CantAReponer + cantStock);
                     
                     ActualizarGrilla();
+                    MessageBox.Show("Compra de stock exitosa");
                 }
             }
             else { MessageBox.Show("Agregue productos a la orden de compra"); }
