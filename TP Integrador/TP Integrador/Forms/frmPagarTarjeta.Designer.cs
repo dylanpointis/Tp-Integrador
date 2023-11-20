@@ -34,10 +34,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTitular = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNumTarjeta = new System.Windows.Forms.TextBox();
+            this.txtTitular = new System.Windows.Forms.TextBox();
+            this.txtNumTarjeta = new TP_Integrador.ControlesUsuario.textBoxSoloNumero();
             this.SuspendLayout();
             // 
             // lblMonto
@@ -95,14 +95,6 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Nombre titular";
             // 
-            // txtTitular
-            // 
-            this.txtTitular.Location = new System.Drawing.Point(64, 98);
-            this.txtTitular.Name = "txtTitular";
-            this.txtTitular.Size = new System.Drawing.Size(178, 20);
-            this.txtTitular.TabIndex = 13;
-            this.txtTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTitular_KeyPress);
-            // 
             // txtFecha
             // 
             this.txtFecha.CustomFormat = "MM-yy";
@@ -122,19 +114,27 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Número tarjeta";
             // 
+            // txtTitular
+            // 
+            this.txtTitular.Location = new System.Drawing.Point(64, 98);
+            this.txtTitular.Name = "txtTitular";
+            this.txtTitular.Size = new System.Drawing.Size(178, 20);
+            this.txtTitular.TabIndex = 13;
+            this.txtTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTitular_KeyPress);
+            // 
             // txtNumTarjeta
             // 
-            this.txtNumTarjeta.Location = new System.Drawing.Point(64, 151);
+            this.txtNumTarjeta.Location = new System.Drawing.Point(64, 152);
             this.txtNumTarjeta.Name = "txtNumTarjeta";
-            this.txtNumTarjeta.Size = new System.Drawing.Size(178, 20);
-            this.txtNumTarjeta.TabIndex = 10;
-            this.txtNumTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumTarjeta_KeyPress);
+            this.txtNumTarjeta.Size = new System.Drawing.Size(182, 24);
+            this.txtNumTarjeta.TabIndex = 19;
             // 
             // frmPagarTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 407);
+            this.Controls.Add(this.txtNumTarjeta);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label5);
@@ -143,7 +143,6 @@
             this.Controls.Add(this.txtTitular);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNumTarjeta);
             this.Controls.Add(this.lblMonto);
             this.Name = "frmPagarTarjeta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -162,9 +161,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTitular;
         private System.Windows.Forms.DateTimePicker txtFecha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNumTarjeta;
+        private System.Windows.Forms.TextBox txtTitular;
+        private ControlesUsuario.textBoxSoloNumero txtNumTarjeta;
     }
 }

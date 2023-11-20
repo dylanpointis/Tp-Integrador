@@ -50,17 +50,6 @@ namespace TP_Integrador
         }
 
         //SOLO NUMEROS
-        private void txtNumTarjeta_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //EXPRESION REGULAR PARA SOLO NUMEROS
-            Regex regex = new Regex(@"[^0-9\b]");
-            if (regex.IsMatch(e.KeyChar.ToString()))
-            {
-                e.Handled = true;
-            }
-        }
-
-        //SOLO NUMEROS
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(txtCodigo.Text.Length < 3 || char.IsControl(e.KeyChar)) //Solo hasta 3 numeros. Se usa el char.IsControl para poder usar la tecla Borrar

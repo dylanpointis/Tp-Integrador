@@ -54,6 +54,18 @@
     <Compile Include="ControlesUsuario\textBoxFecha.Designer.cs">
       <DependentUpon>textBoxFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlesUsuario\textBoxSoloNumero.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlesUsuario\textBoxSoloNumero.Designer.cs">
+      <DependentUpon>textBoxSoloNumero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlesUsuario\textBoxSoloTexto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlesUsuario\textBoxSoloTexto.Designer.cs">
+      <DependentUpon>textBoxSoloTexto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAltaEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlesUsuario\textBoxFecha.resx">
       <DependentUpon>textBoxFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlesUsuario\textBoxSoloNumero.resx">
+      <DependentUpon>textBoxSoloNumero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlesUsuario\textBoxSoloTexto.resx">
+      <DependentUpon>textBoxSoloTexto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAltaEmpleado.resx">
       <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
