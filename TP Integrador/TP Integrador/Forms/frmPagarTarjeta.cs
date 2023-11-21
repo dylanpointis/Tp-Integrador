@@ -28,7 +28,7 @@ namespace TP_Integrador
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            if(txtTitular.Text != "" && txtCodigo.Text != "" && txtNumTarjeta.Text != "")
+            if(txtTitular.Texto != "" && txtCodigo.Text != "" && txtNumTarjeta.Texto != "")
             {
                 MessageBox.Show("Pago exitoso");
                 frmInfoEnvio frm = new frmInfoEnvio(pedido, listaCarrito);
@@ -38,16 +38,7 @@ namespace TP_Integrador
             else { MessageBox.Show("LLene los campos solicitados"); }
         }
 
-        //SOLO LETRAS
-        private void txtTitular_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //EXPRESION REGULAR PARA SOLO LETRAS
-            Regex regex = new Regex(@"[^a-zA-Z\b\s]"); // \b es para la tecla Borrar \s patra la barra espaciadora
-            if (regex.IsMatch(e.KeyChar.ToString()))
-            {
-                e.Handled = true;
-            }
-        }
+
 
         //SOLO NUMEROS
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)

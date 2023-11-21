@@ -36,8 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTitular = new System.Windows.Forms.TextBox();
             this.txtNumTarjeta = new TP_Integrador.ControlesUsuario.textBoxSoloNumero();
+            this.txtTitular = new TP_Integrador.ControlesUsuario.textBoxSoloTexto();
             this.SuspendLayout();
             // 
             // lblMonto
@@ -114,14 +114,6 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Número tarjeta";
             // 
-            // txtTitular
-            // 
-            this.txtTitular.Location = new System.Drawing.Point(64, 98);
-            this.txtTitular.Name = "txtTitular";
-            this.txtTitular.Size = new System.Drawing.Size(178, 20);
-            this.txtTitular.TabIndex = 13;
-            this.txtTitular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTitular_KeyPress);
-            // 
             // txtNumTarjeta
             // 
             this.txtNumTarjeta.Location = new System.Drawing.Point(64, 152);
@@ -129,18 +121,25 @@
             this.txtNumTarjeta.Size = new System.Drawing.Size(182, 24);
             this.txtNumTarjeta.TabIndex = 19;
             // 
+            // txtTitular
+            // 
+            this.txtTitular.Location = new System.Drawing.Point(64, 96);
+            this.txtTitular.Name = "txtTitular";
+            this.txtTitular.Size = new System.Drawing.Size(179, 24);
+            this.txtTitular.TabIndex = 20;
+            // 
             // frmPagarTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 407);
+            this.Controls.Add(this.txtTitular);
             this.Controls.Add(this.txtNumTarjeta);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTitular);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblMonto);
@@ -163,7 +162,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker txtFecha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTitular;
         private ControlesUsuario.textBoxSoloNumero txtNumTarjeta;
+        private ControlesUsuario.textBoxSoloTexto txtTitular;
     }
 }

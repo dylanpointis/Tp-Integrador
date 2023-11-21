@@ -66,12 +66,12 @@ namespace TP_Integrador
 
             if(cmbOpcion.Text == "Envío a domicilio")
             {
-                Envios envio = new Envios(idPedido, "Esperando a ser programado", "-", txtDirección.Text, txtLocalidad.Text, cmbOpcion.Text);
+                Envios envio = new Envios(idPedido, "Esperando a ser programado por un empleado", "-", txtDirección.Text, txtLocalidad.Text, cmbOpcion.Text);
                 bllEnvios.AgregarEnvio(envio);
             }
             else //Envio a sucursal del Correo
             {
-                Envios envio = new Envios(idPedido, "Esperando a ser programado", "-", cmbCorreo.Text, txtLocalidad.Text, cmbOpcion.Text);
+                Envios envio = new Envios(idPedido, "Esperando a ser programado por un empleado", "-", cmbCorreo.Text, txtLocalidad.Text, cmbOpcion.Text);
                 bllEnvios.AgregarEnvio(envio);
             }
            

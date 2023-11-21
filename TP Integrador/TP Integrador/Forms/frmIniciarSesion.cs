@@ -25,21 +25,29 @@ namespace TP_Integrador
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            (bool esValido, Usuario user) = bllUsuarios.VerificarUsuario(txtNombreUsuario.Text, txtClave.Text);
-            user.IDUser = bllUsuarios.TraerId(txtNombreUsuario.Text);
+            if (SingletonSessionManager._instance == null) //Chequea que no haya una instancia de SINGLETON, que no haya iniciado sesion antes
+            {
+                (bool esValido, Usuario user) = bllUsuarios.VerificarUsuario(txtNombreUsuario.Text, txtClave.Text);//Verifica el usuario con username y clave
 
-            if (esValido)
-            {
-                this.Hide(); //oculta el formulario actual
-                frmInicio form = new frmInicio(user);
-                form.Show();
-                form.FormClosing += CerrandoFormulario; //cuando se cierra el formulario Inicio ejecuta la funcion CerrandoFormulario que vuelve a mostrar el formulario actual
+                if (esValido)
+                {
+                    SingletonSessionManager.Instancia.EstablecerUsuario(user);
+
+                    this.Hide(); //oculta el formulario actual
+                    frmInicio form = new frmInicio();
+
+                    form.Show();
+                    form.FormClosing += CerrandoFormulario; //cuando se cierra el formulario Inicio ejecuta la funcion CerrandoFormulario que vuelve a mostrar el formulario actual y elimina la instancia del Singleton
+                }
+                else
+                {
+                    MessageBox.Show("No iniciaste sesión");
+                }
             }
-            else
+            else //Si ya hay una instancia de singleton
             {
-                MessageBox.Show("No iniciaste sesión");
+                MessageBox.Show("La sesión ya está iniciada.");
             }
-            
         }
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
@@ -56,9 +64,8 @@ namespace TP_Integrador
 
         private void CerrandoFormulario(object sender, FormClosingEventArgs e)
         {
+            SingletonSessionManager.Instancia.Desconectar(); //Borra la instancia del SINGLETON para que haya solo una
             this.Show();
-            //txtNombreUsuario.Text = "";
-            //txtClave.Text = "";
         }
     }
 }

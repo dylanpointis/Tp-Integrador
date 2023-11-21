@@ -71,6 +71,7 @@ namespace BLL
                 {
                     Usuario user = new Usuario(nombreUsuario, "-");
                     user.Rol = row[3].ToString();
+                    user.IDUser = Convert.ToInt32(row[0]);
                     return (true, user);
                 }
             }

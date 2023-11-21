@@ -15,11 +15,10 @@ namespace TP_Integrador
 {
     public partial class frmComprar : Form
     {
-        Usuario usuarioRecibido;
+        Usuario user = SingletonSessionManager.Instancia.ObtenerUsuario();
 
-        public frmComprar(Usuario user)
+        public frmComprar()
         {
-            usuarioRecibido = user;
             InitializeComponent();
         }
 
@@ -29,6 +28,13 @@ namespace TP_Integrador
 
         private void frmComprar_Load(object sender, EventArgs e)
         {
+            grillaCarrito.ColumnCount = 4;
+            grillaCarrito.Columns[0].Name = "id";
+            grillaCarrito.Columns[1].Name = "Cantidad";
+            grillaCarrito.Columns[2].Name = "Precio";
+            grillaCarrito.Columns[3].Name = "Total";
+
+
             ActualizarGrilla();
         }
 
@@ -71,7 +77,7 @@ namespace TP_Integrador
             return total;
         }
 
-        //NO SIRVEEEEEEEEEEEEEEEE
+
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             try
@@ -83,6 +89,7 @@ namespace TP_Integrador
                 {
                     listaCarrito.Remove(carritoAEliminar);
                 }
+                lblTotal.Text = ObtenerTotal().ToString();
                 ActualizarGrilla();
             }
             catch(Exception ex) { }
@@ -94,8 +101,14 @@ namespace TP_Integrador
             grillaProductos.DataSource = null;
             grillaProductos.DataSource = bllProductos.traerTabla();
 
-            grillaCarrito.DataSource = null;
-            grillaCarrito.DataSource = listaCarrito;
+            grillaCarrito.Rows.Clear();
+            if (listaCarrito.Count() > 0)
+            {
+                foreach (Item item in listaCarrito)
+                {
+                    grillaCarrito.Rows.Add(new string[] { item.idProducto.ToString(), item.cantidad.ToString(), item.precio.ToString(), item.total.ToString() });
+                }
+            }
         }
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
@@ -104,7 +117,7 @@ namespace TP_Integrador
             {
                 if(cmbMetodoPago.Text != "")
                 {
-                    Pedidos pedido = new Pedidos(usuarioRecibido.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
+                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
                     if (cmbMetodoPago.Text == "Transferencia")
                     {
                         frmPagarTransferencia frm = new frmPagarTransferencia(pedido, listaCarrito);
@@ -124,6 +137,6 @@ namespace TP_Integrador
 
             }
             else { MessageBox.Show("Agregue productos al carrito para comprar"); }
-        }    
+        }
     }
 }

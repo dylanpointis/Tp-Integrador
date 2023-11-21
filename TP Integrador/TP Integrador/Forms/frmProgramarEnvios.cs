@@ -15,10 +15,9 @@ namespace TP_Integrador.Forms
 {
     public partial class frmProgramarEnvios : Form
     {
-        private Usuario user;
-        public frmProgramarEnvios(Usuario userRecibido)
+        Usuario user = SingletonSessionManager.Instancia.ObtenerUsuario();
+        public frmProgramarEnvios()
         {
-            user = userRecibido;
             InitializeComponent();
         }
 
@@ -35,17 +34,21 @@ namespace TP_Integrador.Forms
         private void btnProgramarEnvio_Click(object sender, EventArgs e)
         {
             //ID EMPLEADO, ID_LOGISTICA, ESTADO A "Esperando preparación", Fecha de envío
-            MessageBox.Show(txtFecha.Text);
             
             try
             {
-                int idLogistica = Convert.ToInt32(grillaLogistica.CurrentRow.Cells[0].Value);
-                int idEnvio = Convert.ToInt32(grillaEnvios.CurrentRow.Cells[0].Value);
+                if(grillaLogistica.CurrentRow.Cells[4].Value.ToString() == "Esperando a ser programado por un empleado")
+                {
+                    int idLogistica = Convert.ToInt32(grillaLogistica.CurrentRow.Cells[0].Value);
+                    int idEnvio = Convert.ToInt32(grillaEnvios.CurrentRow.Cells[0].Value);
 
 
-                bllEnvios.ProgramarEnvio(idEnvio, user.IDUser, idLogistica, "En preparación", dateTimePicker1.Value.ToString("dd-MM-yyyy"));
+                    bllEnvios.ProgramarEnvio(idEnvio, user.IDUser, idLogistica, "En preparación", dateTimePicker1.Value.ToString("dd-MM-yyyy"));
 
-                ActualizarGrilla();
+                    ActualizarGrilla();
+                }
+                else { MessageBox.Show("El envío ya ha sido programado"); }
+                
             }catch(Exception ex) { MessageBox.Show("Seleccione un envio y una empresa de logistica"); }
            
         }

@@ -14,10 +14,9 @@ namespace TP_Integrador.Forms
 {
     public partial class frmProductos : Form
     {
-        Usuario usuario;
-        public frmProductos(Usuario usuarioRecibido)
+        Usuario user = SingletonSessionManager.Instancia.ObtenerUsuario();
+        public frmProductos()
         {
-            usuario = usuarioRecibido;
             InitializeComponent();
         }
 

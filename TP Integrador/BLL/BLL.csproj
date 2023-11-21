@@ -51,6 +51,7 @@
     <Compile Include="BLLReclamos.cs" />
     <Compile Include="BLLUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingletonSessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

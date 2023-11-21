@@ -16,11 +16,10 @@ namespace TP_Integrador
 {
     public partial class frmReclamos : Form
     {
-        private Usuario usuario;
+        Usuario user = SingletonSessionManager.Instancia.ObtenerUsuario();
 
-        public frmReclamos(Usuario usuarioRecibido)
+        public frmReclamos()
         {
-            usuario = usuarioRecibido;
             InitializeComponent();
         }
 
@@ -35,7 +34,7 @@ namespace TP_Integrador
         private void button1_Click(object sender, EventArgs e)
         {
             Reclamos reclamo = new Reclamos(textBox1.Text, comboBox1.Text);
-            bllReclamos.AgregarReclamos(usuario.IDUser, reclamo);
+            bllReclamos.AgregarReclamos(user.IDUser, reclamo);
             ActualizarGrilla();
         }
 
@@ -44,11 +43,11 @@ namespace TP_Integrador
             dataGridView1.Rows.Clear();
             DataTable tabla = bllReclamos.TraerTabla();
 
-            if(usuario.Rol == "Cliente") // SI ES UN CLIENTE SOLO MUESTRA SUS RECLAMOS
+            if(user.Rol == "Cliente") // SI ES UN CLIENTE SOLO MUESTRA SUS RECLAMOS
             {
                 foreach (DataRow row in tabla.Rows)
                 {
-                    if (Convert.ToInt32(row[1]) == usuario.IDUser)
+                    if (Convert.ToInt32(row[1]) == user.IDUser)
                     {
                         dataGridView1.Rows.Add(row.ItemArray);
                     }

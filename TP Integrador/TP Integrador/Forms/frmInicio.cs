@@ -15,18 +15,17 @@ namespace TP_Integrador
 {
     public partial class frmInicio : Form
     {
-        Usuario user;
+        Usuario user = SingletonSessionManager.Instancia.ObtenerUsuario();
 
 
-        public frmInicio(Usuario usuarioRecibido)
+        public frmInicio()
         {
-            user = usuarioRecibido;
             InitializeComponent();
         }
 
         Form formActivo = new Form();
 
-        private void AbrirForm(Form form)
+        private void AbrirForm(Form form) //FUNCION PARA ABRIR FORMS DENTRO DEL MDIPARENT
         {
             if(formActivo != null)
             {
@@ -43,10 +42,7 @@ namespace TP_Integrador
             formActivo.Show();
         }
 
-
-
-
-        private void frmInicio_Load(object sender, EventArgs e)
+        private void frmInicio_Load(object sender, EventArgs e) //OCULTAR BOTONES SEGUN ROL
         {
             label1.Text = $"Bienvenido {user.Rol} {user.NombreUsuario}";
             if (user.Rol == "Empleado")
@@ -68,25 +64,25 @@ namespace TP_Integrador
 
         private void btnComprar_Click_1(object sender, EventArgs e)
         {
-            frmComprar form = new frmComprar(user);
+            frmComprar form = new frmComprar();
             AbrirForm(form);
         }
 
         private void btnVerEnvio_Click(object sender, EventArgs e)
         {
-            frmEnvios form = new frmEnvios(user);
+            frmEnvios form = new frmEnvios();
             AbrirForm(form);
         }
 
         private void btnProgramarEnvios_Click_1(object sender, EventArgs e)
         {
-            frmProgramarEnvios form = new frmProgramarEnvios(user);
+            frmProgramarEnvios form = new frmProgramarEnvios();
             AbrirForm(form);
         }
 
         private void btnProductos_Click_1(object sender, EventArgs e)
         {
-            frmProductos form = new frmProductos(user);
+            frmProductos form = new frmProductos();
             AbrirForm(form);
         }
 
@@ -104,7 +100,7 @@ namespace TP_Integrador
 
         private void btnReclamos_Click_1(object sender, EventArgs e)
         {
-            frmReclamos form = new frmReclamos(user);
+            frmReclamos form = new frmReclamos();
             AbrirForm(form);
         }
 

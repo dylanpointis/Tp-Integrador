@@ -14,10 +14,9 @@ namespace TP_Integrador
 {
     public partial class frmEnvios : Form
     {
-        Usuario usuarioRecibido;
-        public frmEnvios(Usuario user)
+        Usuario user = SingletonSessionManager.Instancia.ObtenerUsuario();
+        public frmEnvios()
         {
-            usuarioRecibido = user;
             InitializeComponent();
         }
 
@@ -53,7 +52,7 @@ namespace TP_Integrador
 
         private void ActualizarGrilla()
         {
-            grillaEnvios.DataSource = bllEnvios.traerTablaSegunCliente(usuarioRecibido.IDUser);
+            grillaEnvios.DataSource = bllEnvios.traerTablaSegunCliente(user.IDUser);
         }
     }
 }
