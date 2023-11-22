@@ -41,7 +41,7 @@ namespace TP_Integrador.Forms
 
                 if(txtFecha.Text != "" && txtLugar.Text != "")
                 {
-                    OrdenDeCompra orden = new OrdenDeCompra(idProd,cantReponer,txtFecha.Text, txtFecha.Value.ToString("dd-MM-yyyy"));
+                    OrdenDeCompra orden = new OrdenDeCompra(idProd,cantReponer, txtFecha.Value.ToString("dd-MM-yyyy"), txtLugar.Text );
                     listCompra.Add(orden);
                     ActualizarGrilla();
                 }

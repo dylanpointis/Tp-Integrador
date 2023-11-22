@@ -27,7 +27,7 @@ namespace TP_Integrador.Forms
         private void frmProgramarEnvios_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
-            grillaEnvios.Columns[0].Width = 50; grillaEnvios.Columns[1].Width = 50; grillaEnvios.Columns[2].Width = 50; grillaEnvios.Columns[3].Width = 50; grillaLogistica.Columns[0].Width = 50;
+            grillaEnvios.Columns[0].Width = 50; grillaEnvios.Columns[1].Width = 40; grillaEnvios.Columns[2].Width = 40; grillaEnvios.Columns[3].Width = 40; grillaLogistica.Columns[0].Width = 50;
             dateTimePicker1.MinDate = DateTime.Today;
         }
 
@@ -37,7 +37,7 @@ namespace TP_Integrador.Forms
             
             try
             {
-                if(grillaLogistica.CurrentRow.Cells[4].Value.ToString() == "Esperando a ser programado por un empleado")
+                if(grillaEnvios.CurrentRow.Cells[4].Value.ToString() == "Esperando a ser programado por un empleado")
                 {
                     int idLogistica = Convert.ToInt32(grillaLogistica.CurrentRow.Cells[0].Value);
                     int idEnvio = Convert.ToInt32(grillaEnvios.CurrentRow.Cells[0].Value);
@@ -58,6 +58,41 @@ namespace TP_Integrador.Forms
             grillaEnvios.DataSource = bllEnvios.traerTabla();
             grillaLogistica.DataSource = bllLogistica.traerTabla();
 
+        }
+
+        private void grillaEnvios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grillaEnvios.SelectedRows.Count > 0)
+            {
+                //int idEnvio = Convert.ToInt32(grillaEnvios.CurrentRow.Cells[0].Value);
+                string Estado = grillaEnvios.CurrentRow.Cells[4].Value.ToString();
+
+
+                if (Estado == "Esperando a ser programado por un empleado")
+                {
+                    btnProgramarEnvio.Visible = true; btnEditarEstado.Visible = false; txtEstado.Visible = false; label3.Visible = false; dateTimePicker1.Visible = true ;label4.Visible = true;
+                }
+                else
+                {
+                    btnProgramarEnvio.Visible = false; btnEditarEstado.Visible = true; txtEstado.Visible = true; label3.Visible = true; dateTimePicker1.Visible = false; label4.Visible = false;
+                }
+            
+            }
+        }
+
+        private void btnEditarEstado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(txtEstado.Text != "")
+                {
+                    int idEnvio = Convert.ToInt32(grillaEnvios.CurrentRow.Cells[0].Value);
+                    bllEnvios.EditarEstado(idEnvio, txtEstado.Text);
+                    ActualizarGrilla();
+                }
+                else { MessageBox.Show("Seleccione un estado"); }      
+            }
+            catch(Exception ex) { MessageBox.Show("Error al editar estado, asegurese de seleccionar un envío en la grilla"); }
         }
     }
 }

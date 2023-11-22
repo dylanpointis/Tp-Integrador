@@ -68,12 +68,15 @@
             // 
             // btnSolicitarStock
             // 
+            this.btnSolicitarStock.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSolicitarStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSolicitarStock.ForeColor = System.Drawing.Color.White;
             this.btnSolicitarStock.Location = new System.Drawing.Point(668, 365);
             this.btnSolicitarStock.Name = "btnSolicitarStock";
             this.btnSolicitarStock.Size = new System.Drawing.Size(103, 30);
             this.btnSolicitarStock.TabIndex = 4;
             this.btnSolicitarStock.Text = "Solicitar stock";
-            this.btnSolicitarStock.UseVisualStyleBackColor = true;
+            this.btnSolicitarStock.UseVisualStyleBackColor = false;
             this.btnSolicitarStock.Click += new System.EventHandler(this.btnSolicitarStock_Click);
             // 
             // btnEliminar

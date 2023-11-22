@@ -48,12 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlesUsuario\textBoxFecha.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlesUsuario\textBoxFecha.Designer.cs">
-      <DependentUpon>textBoxFecha.cs</DependentUpon>
-    </Compile>
     <Compile Include="ControlesUsuario\textBoxSoloNumero.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,9 +158,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ControlesUsuario\textBoxFecha.resx">
-      <DependentUpon>textBoxFecha.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlesUsuario\textBoxSoloNumero.resx">
       <DependentUpon>textBoxSoloNumero.cs</DependentUpon>
     </EmbeddedResource>

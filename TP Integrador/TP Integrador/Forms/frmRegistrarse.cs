@@ -33,6 +33,9 @@ namespace TP_Integrador
 
                 Cliente cli = new Cliente(idUser, txtNombre.Text, txtApellido.Text); //Crea el cliente con el id, nombre y apellido
                 bllCliente.RegistrarCliente(cli); //Da el alta del cliente en la base de datos
+
+                MessageBox.Show("Registro exitoso");
+                this.Close();
             }
             catch(Exception ex) { MessageBox.Show("Error al registrarse"); }
         }

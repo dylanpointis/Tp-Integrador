@@ -41,5 +41,10 @@ namespace BLL
         {
             dal.EjecutarComando($"DELETE FROM Envios where id_envio = {idEnvio}");
         }
+
+        public void EditarEstado(int idEnvio, string Estado)
+        {
+            dal.EjecutarComando($"update Envios SET Estado = '{Estado}' WHERE id_envio = {idEnvio};");
+        }
     }
 }
