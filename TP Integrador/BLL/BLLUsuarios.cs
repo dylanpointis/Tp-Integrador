@@ -41,10 +41,14 @@ namespace BLL
 
         public void BajaUsuario(int id)
         {
-            dal.EjecutarComando($"delete from Usuarios where id_usuario = {id}");
+            dal.EjecutarComando($"Delete from Usuarios where id_usuario = {id}");
         }
 
-
+        public void EditarUsuario(Usuario user)
+        {
+            string hash = HashPassword(user.Clave); //Encripta clave
+            dal.EjecutarComando($"UPDATE Usuarios set NombreDeUsuario = '{user.NombreUsuario}', Clave = '{hash}', Rol = '{user.Rol}' where id_usuario = {user.IDUser}");
+        }
 
         //Encriptar password con metodo MD5
         private string HashPassword(string clave)
@@ -93,5 +97,7 @@ namespace BLL
             }
             return id;
         }
+
+
     }
 }

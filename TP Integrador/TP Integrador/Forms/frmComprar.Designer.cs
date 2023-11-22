@@ -39,6 +39,9 @@ namespace TP_Integrador
             this.lblTotal = new System.Windows.Forms.Label();
             this.cmbMetodoPago = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grillaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaCarrito)).BeginInit();
             this.SuspendLayout();
@@ -149,11 +152,39 @@ namespace TP_Integrador
             this.label3.TabIndex = 10;
             this.label3.Text = "Método de pago";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(919, 386);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Filtrar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(919, 352);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(100, 20);
+            this.txtBuscar.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(916, 336);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Buscar producto";
+            // 
             // frmComprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 470);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMetodoPago);
             this.Controls.Add(this.lblTotal);
@@ -186,5 +217,8 @@ namespace TP_Integrador
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.ComboBox cmbMetodoPago;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -31,7 +31,7 @@ namespace TP_Integrador
 
         private void btnDarDeBaja_Click(object sender, EventArgs e)
         {
-            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas dar de baja el pedido", "Dar de baja", MessageBoxButtons.YesNo);
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas dar de baja el pedido", "Dar de baja", MessageBoxButtons.YesNo);
             if (MensajeSIoNO == DialogResult.Yes)
             {
                 try

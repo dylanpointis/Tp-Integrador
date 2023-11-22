@@ -25,7 +25,7 @@ namespace TP_Integrador.Forms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Empleado emp = new Empleado(txtNombreEmp.Text, txtApellidoEmp.Text, txtHorarioEmp.Text, txtRolEmp.Text, Convert.ToDouble(txtSueldoEmp.Text));
+            Empleado emp = new Empleado(txtNombreEmp.Text, txtApellidoEmp.Text, txtHorarioEmp.Text, txtRolEmp.Text, Convert.ToDouble(txtSueldoEmp.Text), idUser.ToString(), "-");
             emp.idEmpleado = idUser;
 
             BLLemp.RegistrarEmpleado(emp);

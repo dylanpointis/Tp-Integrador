@@ -58,7 +58,7 @@ namespace TP_Integrador
 
         private void frmIniciarSesion_Load(object sender, EventArgs e)
         {
-            txtNombreUsuario.Text = "Empleado";
+            txtNombreUsuario.Text = "Admin";
             txtClave.Text = "123";
         }
 

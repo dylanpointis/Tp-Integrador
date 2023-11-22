@@ -148,6 +148,7 @@
             this.Controls.Add(this.txtApellidoEmp);
             this.Controls.Add(this.txtNombreEmp);
             this.Name = "frmAltaEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAltaEmpleado";
             this.ResumeLayout(false);
             this.PerformLayout();

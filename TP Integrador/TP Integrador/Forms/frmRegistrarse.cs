@@ -31,7 +31,7 @@ namespace TP_Integrador
 
                 int idUser = bllUsuarios.TraerId(txtNombreUsuario.Text); //Trae el id del usuario creado
 
-                Cliente cli = new Cliente(idUser, txtNombre.Text, txtApellido.Text); //Crea el cliente con el id, nombre y apellido
+                Cliente cli = new Cliente(idUser, txtNombre.Text, txtApellido.Text, txtNombreUsuario.Text, "-"); //Crea el cliente con el id, nombre y apellido. Tambien nombre de usuario pero no la clave
                 bllCliente.RegistrarCliente(cli); //Da el alta del cliente en la base de datos
 
                 MessageBox.Show("Registro exitoso");

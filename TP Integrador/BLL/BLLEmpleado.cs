@@ -19,7 +19,7 @@ namespace BLL
 
         public void RegistrarEmpleado(Empleado emp)
         {
-            dal.EjecutarComando($"INSERT INTO Empleados VALUES ({emp.idEmpleado},'{emp.nombre}','{emp.apellido}','{emp.horario}','{emp.rolEmpleado}',{emp.sueldo});");
+            dal.EjecutarComando($"INSERT INTO Empleados VALUES ({emp.idEmpleado},'{emp.nombre}','{emp.apellido}','{emp.horario}',{emp.sueldo});");
         }
     }
 }

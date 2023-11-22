@@ -29,7 +29,7 @@ namespace TP_Integrador
         private void frmComprar_Load(object sender, EventArgs e)
         {
             grillaCarrito.ColumnCount = 4;
-            grillaCarrito.Columns[0].Name = "id";
+            grillaCarrito.Columns[0].Name = "id producto";
             grillaCarrito.Columns[1].Name = "Cantidad";
             grillaCarrito.Columns[2].Name = "Precio";
             grillaCarrito.Columns[3].Name = "Total";
