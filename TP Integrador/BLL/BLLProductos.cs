@@ -63,5 +63,12 @@ namespace BLL
             int CantStock = dal.ConsultarNumero($"SELECT CantStock from Productos where id_producto = {idProd}");
             return CantStock;
         }
+
+        public DataTable BuscarDescripcionProducto(string descripcionProducto) //Esta funcion sirve para filtrar los productos segun su Descripcion
+        {
+            descripcionProducto = descripcionProducto + "%"; //Se le agrega un % y se utiliza la palabra LIKE para filtrar por las Descripciones que comienzen con ciertas letras
+            DataTable tabla= dal.traerTablaQuery($"SELECT * FROM Productos where Descripcion LIKE '{descripcionProducto}';");//en vez de = se usa LIKE
+            return tabla;
+        }
     }
 }

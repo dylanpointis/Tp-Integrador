@@ -34,7 +34,6 @@ namespace TP_Integrador
             grillaCarrito.Columns[2].Name = "Precio";
             grillaCarrito.Columns[3].Name = "Total";
 
-
             ActualizarGrilla();
         }
 
@@ -137,6 +136,21 @@ namespace TP_Integrador
 
             }
             else { MessageBox.Show("Agregue productos al carrito para comprar"); }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(txtBuscar.Text != "")
+            {
+                grillaProductos.DataSource = bllProductos.BuscarDescripcionProducto(txtBuscar.Text);
+            }
+            else { MessageBox.Show("Ingrese la descripcion del producto que quiere buscar"); }
+          
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ActualizarGrilla();
         }
     }
 }

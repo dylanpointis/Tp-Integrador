@@ -28,7 +28,7 @@ namespace TP_Integrador.ControlesUsuario
             }
         }
 
-        public string Texto;
+        public string Texto = "";
 
         private void txtNum_TextChanged(object sender, EventArgs e)
         {

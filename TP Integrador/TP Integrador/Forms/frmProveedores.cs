@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +33,12 @@ namespace TP_Integrador.Forms
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            if(txtNombre.Texto != "" && txtNumero.Texto != "")
+            {
+                Proveedor prov = new Proveedor(txtNombre.Texto, Convert.ToInt32(txtNumero.Texto));
+                bllProv.AltaProveedor(prov);
+                ActualizarGrilla();
+            }MessageBox.Show("Llene los campos");      
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -40,6 +46,9 @@ namespace TP_Integrador.Forms
             DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas dar de baja el proveedor", "Dar de baja", MessageBoxButtons.YesNo);
             if (MensajeSIoNO == DialogResult.Yes)
             {
+                int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
+                bllProv.BajaProveedor(idProveedor);
+                ActualizarGrilla();
             }
         }
 
@@ -48,6 +57,7 @@ namespace TP_Integrador.Forms
             DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas editar el proveedor", "Editar", MessageBoxButtons.YesNo);
             if (MensajeSIoNO == DialogResult.Yes)
             {
+                int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
             }
         }
     }

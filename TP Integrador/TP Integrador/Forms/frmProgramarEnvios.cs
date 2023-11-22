@@ -94,5 +94,10 @@ namespace TP_Integrador.Forms
             }
             catch(Exception ex) { MessageBox.Show("Error al editar estado, asegurese de seleccionar un envío en la grilla"); }
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ActualizarGrilla();
+        }
     }
 }

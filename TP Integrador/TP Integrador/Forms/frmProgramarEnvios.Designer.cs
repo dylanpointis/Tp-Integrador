@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProgramarEnvios));
             this.grillaEnvios = new System.Windows.Forms.DataGridView();
             this.btnProgramarEnvio = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.btnEditarEstado = new System.Windows.Forms.Button();
             this.txtEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grillaEnvios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaLogistica)).BeginInit();
             this.SuspendLayout();
@@ -150,11 +152,23 @@
             this.label4.Text = "Fecha de envío";
             this.label4.Visible = false;
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.Location = new System.Drawing.Point(1085, 411);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(35, 31);
+            this.btnActualizar.TabIndex = 127;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // frmProgramarEnvios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 470);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEditarEstado);
@@ -187,5 +201,6 @@
         private System.Windows.Forms.Button btnEditarEstado;
         private System.Windows.Forms.ComboBox txtEstado;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

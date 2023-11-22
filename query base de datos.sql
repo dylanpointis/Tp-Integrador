@@ -67,8 +67,7 @@ CREATE TABLE Proveedores
 (
 id_proveedor INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Nombre varchar(50),
-NumTel int,
-Precio float
+NumTel int
 )
 
 CREATE TABLE OrdenDeCompra
@@ -159,6 +158,16 @@ CREATE PROCEDURE EditarProducto
 AS
 BEGIN
 	UPDATE Productos set Precio = @Precio, Descripcion = @Descripcion where id_producto = @id_producto;
+END
+GO
+
+
+CREATE PROCEDURE AltaProveedor
+@Nombre varchar(50),
+@NumTel int
+AS
+BEGIN
+	INSERT INTO Productos VALUES (@Nombre, @NumTel);
 END
 GO
 

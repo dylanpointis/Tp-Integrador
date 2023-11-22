@@ -11,13 +11,11 @@ namespace BE
         public int id_proveedor { get; set; }
         public string Nombre { get; set; }
         public int NumTelefono { get; set; }
-        public double Precio { get; set; }
 
-        public Proveedor(string nombre, int numTelefono, double precio)
+        public Proveedor(string nombre, int numTelefono)
         {
             Nombre = nombre;
             NumTelefono = numTelefono;
-            Precio = precio;
         }
     }
 }

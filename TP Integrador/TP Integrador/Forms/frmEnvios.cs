@@ -25,6 +25,7 @@ namespace TP_Integrador
 
         private void frmEnvios_Load(object sender, EventArgs e)
         {
+            label1.Text += user.NombreUsuario;
             ActualizarGrilla();
             grillaEnvios.Columns[0].Width = 50; grillaEnvios.Columns[1].Width = 50; grillaEnvios.Columns[2].Width = 50; grillaEnvios.Columns[3].Width = 50; grillaEnvios.Columns[4].Width = 170; grillaEnvios.Columns[6].Width = 150; grillaEnvios.Columns[8].Width = 150;
         }

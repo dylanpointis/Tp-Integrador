@@ -75,9 +75,8 @@ namespace TP_Integrador.Forms
             {
                 string nombre = grillaProveedores.CurrentRow.Cells[1].Value.ToString();
                 int NumTel = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[2].Value);
-                double Precio = Convert.ToDouble(grillaProveedores.CurrentRow.Cells[3].Value);
 
-                Proveedor prov = new Proveedor(nombre, NumTel, Precio);
+                Proveedor prov = new Proveedor(nombre, NumTel);
                 prov.id_proveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
 
                 frmSolicitarStock frm = new frmSolicitarStock(prov);

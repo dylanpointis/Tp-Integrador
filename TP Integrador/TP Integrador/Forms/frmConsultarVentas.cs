@@ -42,5 +42,10 @@ namespace TP_Integrador
             chart1.Series[0].Points.DataBindXY(xValores, yValores);
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            cargarGrafico();
+        }
     }
 }
