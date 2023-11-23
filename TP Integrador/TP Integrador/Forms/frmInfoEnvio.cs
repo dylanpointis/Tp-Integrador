@@ -54,6 +54,9 @@ namespace TP_Integrador
         {
             //Inserta un nuevo pedido y guarda el ID de la primary key auto incrementable
             int idPedido = bllPedido.AgregarPedido(pedido);
+  
+            
+            bllPedido.GenerarFactura(idPedido, pedido.Fecha, pedido.Total);
 
             foreach (Item item in listaCarrito)
             {
@@ -77,8 +80,6 @@ namespace TP_Integrador
            
 
             MessageBox.Show("Compra exitosa");
-
-
         }
 
         private void frmInfoEnvio_Load(object sender, EventArgs e)

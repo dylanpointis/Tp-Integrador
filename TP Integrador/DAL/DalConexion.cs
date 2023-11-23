@@ -25,7 +25,7 @@ namespace DAL
 
         SqlTransaction tran;
         //CONECTADO
-
+        #region MODO CONECTADO
         public void EjecutarComando(string query)
         {
             try
@@ -89,9 +89,10 @@ namespace DAL
             con.Close();
             return tabla;
         }
-
+        #endregion
 
         //DESCONECTADO
+        #region MODO DESCONECTADO
         DataSet dataSet;
         SqlDataAdapter adapter;
         
@@ -126,7 +127,7 @@ namespace DAL
             DataTable Tabla = dataSet.Tables[tabla];
             return Tabla;
         }
+        #endregion
 
-      
     }
 }

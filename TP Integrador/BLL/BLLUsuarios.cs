@@ -24,7 +24,6 @@ namespace BLL
 
         public void RegistrarUsuario(string username, string password, string rol)
         {
-
             string hash = HashPassword(password);
 
             SqlParameter[] parametros = new SqlParameter[]
@@ -33,7 +32,6 @@ namespace BLL
                 new SqlParameter("@clave", hash),
                 new SqlParameter("@rol", rol)
             };
-
 
             //$"INSERT INTO Usuarios (NombreDeUsuario, Clave, Salt) VALUES (@NombreDeUsuario, @Clave, @Salt)";
             dal.EjecutarProcAlmacenado("RegistrarUsuario", parametros);

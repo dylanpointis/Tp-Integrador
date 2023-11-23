@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using System.Data;
 using BE;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -35,6 +36,11 @@ namespace BLL
         {
             dal.EjecutarComando($"DELETE FROM Pedido_Producto where id_pedido = {IdPedido}"); //Elimina de la tabla Intermedia Pedido_Producto
             dal.EjecutarComando($"DELETE FROM Pedidos where id_pedido = {IdPedido}"); //Elimina de la tabla principal Pedidos        
+        }
+
+        public void GenerarFactura(int idPedido, string fecha, decimal total)
+        {
+            MessageBox.Show($"Factura del pedido ID: {idPedido}\nMonto: {total}\nFecha: {fecha}");
         }
     }
 }
