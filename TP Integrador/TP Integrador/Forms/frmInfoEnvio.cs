@@ -54,9 +54,7 @@ namespace TP_Integrador
         {
             //Inserta un nuevo pedido y guarda el ID de la primary key auto incrementable
             int idPedido = bllPedido.AgregarPedido(pedido);
-  
-            
-            bllPedido.GenerarFactura(idPedido, pedido.Fecha, pedido.Total);
+            bllPedido.GenerarFactura(idPedido.ToString(), pedido.Fecha, pedido.Total.ToString());
 
             foreach (Item item in listaCarrito)
             {

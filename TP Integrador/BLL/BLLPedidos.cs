@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BLL
 {
-    public class BLLPedidos
+    public class BLLPedidos: Factura<string>
     {
         DalConexion dal = new DalConexion();
 
@@ -38,7 +38,7 @@ namespace BLL
             dal.EjecutarComando($"DELETE FROM Pedidos where id_pedido = {IdPedido}"); //Elimina de la tabla principal Pedidos        
         }
 
-        public void GenerarFactura(int idPedido, string fecha, decimal total)
+        public void GenerarFactura(string idPedido, string fecha, string total)
         {
             MessageBox.Show($"Factura del pedido ID: {idPedido}\nMonto: {total}\nFecha: {fecha}");
         }
