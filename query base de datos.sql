@@ -167,10 +167,19 @@ CREATE PROCEDURE AltaProveedor
 @NumTel int
 AS
 BEGIN
-	INSERT INTO Productos VALUES (@Nombre, @NumTel);
+	INSERT INTO Proveedores VALUES (@Nombre, @NumTel);
 END
 GO
 
+CREATE PROCEDURE AltaReclamo
+@idCliente int,
+@Categoria varchar(50),
+@Descripcion varchar(50)
+AS
+BEGIN
+	INSERT INTO Reclamos VALUES (@idCliente, @Categoria, @Descripcion);
+END
+GO
 
 Insert into Usuarios VALUES ('Joaquin','202cb962ac59075b964b07152d234b70','Cliente')
 Insert into Usuarios VALUES ('Empleado','202cb962ac59075b964b07152d234b70','Empleado')

@@ -77,6 +77,20 @@ namespace DAL
             return numero;
         }
 
+        public DataTable traerTablaQuery(string query)
+        {
+            Conectar();
+
+            SqlCommand command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable tabla = new DataTable();
+            tabla.Load(reader);
+
+            con.Close();
+            return tabla;
+        }
+
+
         //DESCONECTADO
         DataSet dataSet;
         SqlDataAdapter adapter;
@@ -113,17 +127,6 @@ namespace DAL
             return Tabla;
         }
 
-        public DataTable traerTablaQuery(string query)
-        {
-            Conectar();
-
-            SqlCommand command = new SqlCommand(query, con);
-            SqlDataReader reader = command.ExecuteReader();
-            DataTable tabla = new DataTable();
-            tabla.Load(reader);
-
-            con.Close();
-            return tabla;
-        }
+      
     }
 }

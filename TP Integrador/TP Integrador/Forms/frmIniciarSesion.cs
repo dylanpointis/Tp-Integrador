@@ -58,7 +58,7 @@ namespace TP_Integrador
 
         private void frmIniciarSesion_Load(object sender, EventArgs e)
         {
-            txtNombreUsuario.Text = "Admin";
+            txtNombreUsuario.Text = "Joaquin";
             txtClave.Text = "123";
         }
 
@@ -66,6 +66,25 @@ namespace TP_Integrador
         {
             SingletonSessionManager.Instancia.Desconectar(); //Borra la instancia del SINGLETON para que haya solo una
             this.Show();
+        }
+
+        private void btnOcultarClave_Click(object sender, EventArgs e)
+        {
+            btnMostrarClave.BringToFront();
+            txtClave.PasswordChar = '*';
+        }
+
+        private void btnMostrarClave_Click(object sender, EventArgs e)
+        {
+            btnOcultarClave.BringToFront();
+            txtClave.PasswordChar = '\0';
+        }
+
+        private void btnMostrarCuentas_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cliente:\nusuario: Joaquin, clave: 123");
+            MessageBox.Show("Empleado:\nusuario: Empleado, clave: 123");
+            MessageBox.Show("Admin:\nusuario: Admin, clave: 123");
         }
     }
 }

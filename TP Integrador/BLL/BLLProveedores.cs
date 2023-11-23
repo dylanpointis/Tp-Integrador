@@ -27,7 +27,12 @@ namespace BLL
 
         public void BajaProveedor(int idProveedor)
         {
-            
+            dal.EjecutarComando($"DELETE FROM Proveedores where id_proveedor = {idProveedor}");
+        }
+
+        public void EditarProveedor(Proveedor prov)
+        {
+            dal.EjecutarComando($"UPDATE Proveedores SET Nombre = '{prov.Nombre}', NumTel = {prov.NumTelefono} where id_proveedor = {prov.id_proveedor}");
         }
 
         public DataTable traerTabla()

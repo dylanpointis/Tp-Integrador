@@ -33,9 +33,13 @@ namespace TP_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Reclamos reclamo = new Reclamos(textBox1.Text, comboBox1.Text);
-            bllReclamos.AgregarReclamos(user.IDUser, reclamo);
-            ActualizarGrilla();
+            if(txtDescripcion.Text != "" && cmbCategoria.Text != "")
+            {
+                Reclamos reclamo = new Reclamos(txtDescripcion.Text, cmbCategoria.Text);
+                reclamo.ID_Cliente = user.IDUser;
+                bllReclamos.AgregarReclamos(reclamo);
+                ActualizarGrilla();
+            }  
         }
 
         private void ActualizarGrilla()
@@ -65,7 +69,7 @@ namespace TP_Integrador
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas dar de baja el reclamo", "Dar de baja", MessageBoxButtons.YesNo);
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas dar de baja el reclamo", "Dar de baja", MessageBoxButtons.YesNo);
             if (MensajeSIoNO == DialogResult.Yes)
             {
                 try
@@ -77,5 +81,27 @@ namespace TP_Integrador
                
             }
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas editar el reclamo", "Editar", MessageBoxButtons.YesNo);
+            if (MensajeSIoNO == DialogResult.Yes)
+            {
+                try
+                {
+                    if (txtDescripcion.Text != "" && cmbCategoria.Text != "")
+                    {
+                        int idReclamo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+                        Reclamos reclamo = new Reclamos(txtDescripcion.Text, cmbCategoria.Text);
+                        reclamo.ID_Cliente = user.IDUser;
+
+                        bllReclamos.EditarReclamo(idReclamo, reclamo);
+                        ActualizarGrilla();
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show("Error al editar el reclamo, asegurese de seleccionar uno en la grilla"); }
+            }
+}
     }
 }

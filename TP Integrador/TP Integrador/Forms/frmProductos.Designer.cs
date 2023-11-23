@@ -58,7 +58,7 @@
             this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(174, 430);
+            this.btnEditar.Location = new System.Drawing.Point(174, 401);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 2;
@@ -84,7 +84,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(174, 401);
+            this.btnEliminar.Location = new System.Drawing.Point(174, 430);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 9;

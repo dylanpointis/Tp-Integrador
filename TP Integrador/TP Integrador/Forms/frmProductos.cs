@@ -47,26 +47,34 @@ namespace TP_Integrador.Forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas dar de baja el producto", "Dar de baja", MessageBoxButtons.YesNo);
+            if (MensajeSIoNO == DialogResult.Yes)
             {
-                int idProd = Convert.ToInt32(grillaProductos.CurrentRow.Cells[0].Value);
-                bllProductos.BajaProducto(idProd);
-                ActualizarGrilla();
+                try
+                {
+                    int idProd = Convert.ToInt32(grillaProductos.CurrentRow.Cells[0].Value);
+                    bllProductos.BajaProducto(idProd);
+                    ActualizarGrilla();
+                }
+                catch (Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
             }
-            catch(Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas editar el producto", "Editar", MessageBoxButtons.YesNo);
+            if (MensajeSIoNO == DialogResult.Yes)
             {
-                int idProd = Convert.ToInt32(grillaProductos.CurrentRow.Cells[0].Value);
-                Producto prod = new Producto(Convert.ToDouble(numPrecio.Value), 0, txtDescripcion.Text);
-                prod.id_producto = idProd;
-                bllProductos.EditarProducto(prod);
-                ActualizarGrilla();
+                try
+                {
+                    int idProd = Convert.ToInt32(grillaProductos.CurrentRow.Cells[0].Value);
+                    Producto prod = new Producto(Convert.ToDouble(numPrecio.Value), 0, txtDescripcion.Text);
+                    prod.id_producto = idProd;
+                    bllProductos.EditarProducto(prod);
+                    ActualizarGrilla();
+                }
+                catch (Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
             }
-            catch (Exception ex) { MessageBox.Show("Seleccione un producto en la grilla para Eliminar"); }
         }
 
         private void btnSolicitarStock_Click(object sender, EventArgs e)

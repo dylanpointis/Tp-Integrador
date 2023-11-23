@@ -66,7 +66,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(705, 202);
+            this.btnEliminar.Location = new System.Drawing.Point(705, 231);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 20;
@@ -92,7 +92,7 @@
             this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(705, 231);
+            this.btnEditar.Location = new System.Drawing.Point(705, 202);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 18;
@@ -127,6 +127,7 @@
             this.btnActualizar.Size = new System.Drawing.Size(35, 31);
             this.btnActualizar.TabIndex = 25;
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // txtNumero
             // 

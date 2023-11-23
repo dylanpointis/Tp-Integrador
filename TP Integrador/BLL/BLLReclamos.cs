@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DAL;
 using System.Data;
 using BE;
+using System.Data.SqlClient;
+
 namespace BLL
 {
     public class BLLReclamos
@@ -19,14 +21,26 @@ namespace BLL
             return tabla;
 
         }
-        public void AgregarReclamos(int id, Reclamos REC)
+        public void AgregarReclamos(Reclamos REC)
         {
-            dal.EjecutarComando($"INSERT INTO Reclamos VALUES ({id},'{REC.Categoria}','{REC.Descripcion}')");
+            SqlParameter[] parametros = new SqlParameter[]
+          {
+                new SqlParameter("@idCliente", REC.ID_Cliente),
+                new SqlParameter("@Categoria", REC.Categoria),
+                new SqlParameter("@Descripcion", REC.Descripcion)
+          };
+
+            dal.EjecutarProcAlmacenado("AltaReclamo", parametros);
         }
 
         public void EliminarReclamo(int id)
         {
             dal.EjecutarComando($"DELETE FROM Reclamos WHERE id_reclamo = {id}");
+        }
+
+        public void EditarReclamo(int idReclamo, Reclamos reclamo)
+        {
+            dal.EjecutarComando($"UPDATE Reclamos SET id_cliente = {reclamo.ID_Cliente}, Categoria = '{reclamo.Categoria}', Descripcion = '{reclamo.Descripcion}' where id_reclamo = {idReclamo}");
         }
     }
 }

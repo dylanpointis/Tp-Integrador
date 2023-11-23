@@ -43,7 +43,7 @@ namespace TP_Integrador.Forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas dar de baja el proveedor", "Dar de baja", MessageBoxButtons.YesNo);
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas dar de baja el proveedor", "Dar de baja", MessageBoxButtons.YesNo);
             if (MensajeSIoNO == DialogResult.Yes)
             {
                 int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
@@ -54,11 +54,20 @@ namespace TP_Integrador.Forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que desas editar el proveedor", "Editar", MessageBoxButtons.YesNo);
+            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas editar el proveedor", "Editar", MessageBoxButtons.YesNo);
             if (MensajeSIoNO == DialogResult.Yes)
             {
                 int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
+                Proveedor prov = new Proveedor(txtNombre.Texto, Convert.ToInt32(txtNumero.Texto));
+                prov.id_proveedor = idProveedor;
+                bllProv.EditarProveedor(prov);
+                ActualizarGrilla();
             }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ActualizarGrilla();
         }
     }
 }
