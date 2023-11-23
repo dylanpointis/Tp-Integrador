@@ -60,6 +60,11 @@ namespace TP_Integrador
                 btnAdministrarUsuarios.Visible = false;
                 btnProveedores.Visible = false;
             }
+            if(user.Rol == "Admin")
+            {
+                btnComprar.Visible = false;
+                btnProgramarEnvios.Visible = false;
+            }
         }
 
         private void btnComprar_Click_1(object sender, EventArgs e)
