@@ -43,26 +43,33 @@ namespace TP_Integrador.Forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas dar de baja el proveedor", "Dar de baja", MessageBoxButtons.YesNo);
-            if (MensajeSIoNO == DialogResult.Yes)
-            {
-                int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
-                bllProv.BajaProveedor(idProveedor);
-                ActualizarGrilla();
-            }
-        }
+            try 
+            { 
+                DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas dar de baja el proveedor", "Dar de baja", MessageBoxButtons.YesNo);
+                if (MensajeSIoNO == DialogResult.Yes)
+                {
+                    int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
+                    bllProv.BajaProveedor(idProveedor);
+                    ActualizarGrilla();
+                }
+            }catch(Exception ex) { MessageBox.Show("Error al eliminar, asegurese de seleccionar el proveedor en la grilla"); }
+}
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas editar el proveedor", "Editar", MessageBoxButtons.YesNo);
-            if (MensajeSIoNO == DialogResult.Yes)
+            try
             {
-                int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
-                Proveedor prov = new Proveedor(txtNombre.Texto, Convert.ToInt32(txtNumero.Texto));
-                prov.id_proveedor = idProveedor;
-                bllProv.EditarProveedor(prov);
-                ActualizarGrilla();
-            }
+                DialogResult MensajeSIoNO = MessageBox.Show("Estas seguro que deseas editar el proveedor", "Editar", MessageBoxButtons.YesNo);
+                if (MensajeSIoNO == DialogResult.Yes)
+                {
+                    int idProveedor = Convert.ToInt32(grillaProveedores.CurrentRow.Cells[0].Value);
+                    Proveedor prov = new Proveedor(txtNombre.Texto, Convert.ToInt32(txtNumero.Texto));
+                    prov.id_proveedor = idProveedor;
+                    bllProv.EditarProveedor(prov);
+                    ActualizarGrilla();
+                }
+            }catch(Exception ex) { MessageBox.Show("Error al editar, asegurese de seleccionar el proveedor en la grilla"); }
+          
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

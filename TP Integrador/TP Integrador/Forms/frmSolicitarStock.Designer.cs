@@ -91,6 +91,7 @@
             this.btnQuitar.TabIndex = 20;
             this.btnQuitar.Text = "Quitar de la orden";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnAgregar
             // 
@@ -112,7 +113,7 @@
             this.btnFinalizarCompra.ForeColor = System.Drawing.Color.White;
             this.btnFinalizarCompra.Location = new System.Drawing.Point(12, 409);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
-            this.btnFinalizarCompra.Size = new System.Drawing.Size(99, 30);
+            this.btnFinalizarCompra.Size = new System.Drawing.Size(105, 30);
             this.btnFinalizarCompra.TabIndex = 21;
             this.btnFinalizarCompra.Text = "Finalizar compra";
             this.btnFinalizarCompra.UseVisualStyleBackColor = false;
@@ -122,7 +123,7 @@
             // 
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProveedor.Location = new System.Drawing.Point(174, 373);
+            this.lblProveedor.Location = new System.Drawing.Point(137, 373);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(88, 16);
             this.lblProveedor.TabIndex = 22;
@@ -149,15 +150,16 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(678, 414);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Lugar de entrega";
+            this.label4.Text = "Fecha de entrega";
             // 
             // txtFecha
             // 
+            this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFecha.Location = new System.Drawing.Point(681, 431);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(200, 20);
+            this.txtFecha.Size = new System.Drawing.Size(132, 20);
             this.txtFecha.TabIndex = 26;
             // 
             // frmSolicitarStock

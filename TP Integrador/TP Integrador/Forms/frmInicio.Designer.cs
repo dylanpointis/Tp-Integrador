@@ -42,6 +42,7 @@ namespace TP_Integrador
             this.btnProgramarEnvios = new System.Windows.Forms.Button();
             this.btnVerEnvio = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
+            this.btnDescuentos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +84,7 @@ namespace TP_Integrador
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnDescuentos);
             this.panel2.Controls.Add(this.btnConsultarVentas);
             this.panel2.Controls.Add(this.btnReclamos);
             this.panel2.Controls.Add(this.btnAdministrarUsuarios);
@@ -226,6 +228,22 @@ namespace TP_Integrador
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click_1);
             // 
+            // btnDescuentos
+            // 
+            this.btnDescuentos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDescuentos.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDescuentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescuentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescuentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuentos.Image")));
+            this.btnDescuentos.Location = new System.Drawing.Point(822, 0);
+            this.btnDescuentos.Name = "btnDescuentos";
+            this.btnDescuentos.Size = new System.Drawing.Size(122, 106);
+            this.btnDescuentos.TabIndex = 13;
+            this.btnDescuentos.Text = "Descuentos";
+            this.btnDescuentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDescuentos.UseVisualStyleBackColor = true;
+            this.btnDescuentos.Click += new System.EventHandler(this.btnDescuentos_Click);
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,5 +277,6 @@ namespace TP_Integrador
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDescuentos;
     }
 }

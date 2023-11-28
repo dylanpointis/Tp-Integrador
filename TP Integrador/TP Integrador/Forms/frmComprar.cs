@@ -24,6 +24,7 @@ namespace TP_Integrador
 
         private BLLPedidos bllPedidos = new BLLPedidos();
         private BLLProductos bllProductos = new BLLProductos();
+        private BLLDescuentos bllDescuentos = new BLLDescuentos();
         private List<Item> listaCarrito = new List<Item>();
 
         private void frmComprar_Load(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace TP_Integrador
 
                     listaCarrito.Add(item);
 
-                    lblTotal.Text = ObtenerTotal().ToString(); 
+                    ActualizarLabelTotal();
                     ActualizarGrilla();
                 }
                 else
@@ -62,8 +63,14 @@ namespace TP_Integrador
                     MessageBox.Show("La cantidad ingresada supera al STOCK disponible");
                 }
             }
-            catch { MessageBox.Show("Asegurese de seleccionar los productos deseados en la grilla Productos"); }
+            catch { MessageBox.Show("Asegurese de seleccionar los productos deseados en la grilla Productos, y de que la cantidad ingresada sea un número"); }
             
+        }
+
+        private void ActualizarLabelTotal()
+        {
+            lblTotal.Text = "Total: " + ObtenerTotal().ToString();
+            lblTotalConDescuento.Text = "Total con descuentos: " + ObtenerTotalConDescuento().ToString();
         }
 
         private decimal ObtenerTotal()
@@ -77,18 +84,34 @@ namespace TP_Integrador
         }
 
 
+        private decimal ObtenerTotalConDescuento()
+        {
+            decimal total = 0;
+            foreach (Item item in listaCarrito)
+            {
+                int descuento = bllDescuentos.ConsultarDescuento(item.idProducto);
+                if (descuento > 0)
+                {
+                    total += (item.total * descuento) / 100;
+                }
+                else { total += item.total; }
+            }
+            return total;
+        }
+
+
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             try
             {
                 int idProducto = Convert.ToInt32(grillaCarrito.CurrentRow.Cells[0].Value);
-                Item carritoAEliminar = listaCarrito.FirstOrDefault(c => c.idProducto == idProducto);
+                Item itemAEliminar = listaCarrito.FirstOrDefault(item => item.idProducto == idProducto);
 
-                if (carritoAEliminar != null)
+                if (itemAEliminar != null)
                 {
-                    listaCarrito.Remove(carritoAEliminar);
+                    listaCarrito.Remove(itemAEliminar);
                 }
-                lblTotal.Text = ObtenerTotal().ToString();
+                ActualizarLabelTotal();
                 ActualizarGrilla();
             }
             catch(Exception ex) { }
@@ -116,7 +139,7 @@ namespace TP_Integrador
             {
                 if(cmbMetodoPago.Text != "")
                 {
-                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotal());
+                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotalConDescuento());
                     if (cmbMetodoPago.Text == "Transferencia")
                     {
                         frmPagarTransferencia frm = new frmPagarTransferencia(pedido, listaCarrito);

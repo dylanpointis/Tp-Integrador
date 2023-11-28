@@ -78,6 +78,7 @@ namespace TP_Integrador
            
 
             MessageBox.Show("Compra exitosa");
+            this.Close();
         }
 
         private void frmInfoEnvio_Load(object sender, EventArgs e)

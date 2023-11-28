@@ -82,10 +82,10 @@ LugarDeEntrega varchar(50)
 
 CREATE TABLE Descuentos
 (
-id_proveedor INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+id_descuento INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 id_producto INT FOREIGN KEY REFERENCES Productos(id_producto),
-PorcentajeDescuento float,
-Duracion varchar(50)
+PorcentajeDescuento int,
+FechaLimite varchar(50)
 )
 
 CREATE TABLE Facturas
@@ -181,6 +181,17 @@ BEGIN
 END
 GO
 
+
+CREATE PROCEDURE AltaDescuentos
+@idProductos int,
+@Porcentaje int,
+@Duracion  varchar(50)
+AS
+BEGIN
+	INSERT INTO Descuentos VALUES (@idProductos, @Porcentaje, @Duracion);
+END
+GO
+
 Insert into Usuarios VALUES ('Joaquin','202cb962ac59075b964b07152d234b70','Cliente')
 Insert into Usuarios VALUES ('Empleado','202cb962ac59075b964b07152d234b70','Empleado')
 Insert into Usuarios VALUES ('Admin','202cb962ac59075b964b07152d234b70','Admin')
@@ -189,7 +200,9 @@ Insert into Clientes VALUES (1,'Joaquin','Perez')
 Insert into Empleados VALUES (2,'Esteban','Rodriguez','6 hs', 250000)
 
 Insert into Productos VALUES (1500,60,'Coca-Cola');
-Insert into Productos VALUES (3000,20,'Pizza mozzarella');
+Insert into Productos VALUES (3000,40,'Pizza mozzarella');
 
 INSERT INTO Proveedores values ('Distribuidora Lomas', 1111234)
 insert into Logistica values ('Logistica Lomas de Zamora','9hs a 16hs', 40000)
+
+INSERT INTO Descuentos values (1, 50, '04-01-2024')

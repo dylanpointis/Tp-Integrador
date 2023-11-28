@@ -111,8 +111,14 @@ namespace TP_Integrador
 
         private void btnConsultarVentas_Click(object sender, EventArgs e)
         {
-            frmConsultarVentas admin = new frmConsultarVentas();
-            AbrirForm(admin);
+            frmConsultarVentas form = new frmConsultarVentas();
+            AbrirForm(form);
+        }
+
+        private void btnDescuentos_Click(object sender, EventArgs e)
+        {
+            frmDescuentos form = new frmDescuentos();
+            AbrirForm(form);
         }
     }
 }

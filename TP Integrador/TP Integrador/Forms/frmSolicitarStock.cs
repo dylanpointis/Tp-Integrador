@@ -29,6 +29,13 @@ namespace TP_Integrador.Forms
         {
             lblProveedor.Text = $"Proveedor ID: {prov.id_proveedor}, Nombre: {prov.Nombre}";
             txtFecha.MinDate = DateTime.Today;
+
+            grillaOrden.ColumnCount = 4;
+            grillaOrden.Columns[0].Name = "id producto";
+            grillaOrden.Columns[1].Name = "Cant a reponer";
+            grillaOrden.Columns[2].Name = "Fecha";
+            grillaOrden.Columns[3].Name = "Lugar";
+
             ActualizarGrilla();
         }
 
@@ -55,8 +62,16 @@ namespace TP_Integrador.Forms
         {
             grillaProductos.DataSource = null;
             grillaProductos.DataSource = bllProductos.traerTabla();
-            grillaOrden.DataSource = null;
-            grillaOrden.DataSource = listCompra;
+
+            grillaOrden.Rows.Clear();
+            if (listCompra.Count() > 0)
+            {
+                foreach (OrdenDeCompra orden in listCompra)
+                {
+                    grillaOrden.Rows.Add(new string[] { orden.idProducto.ToString(), orden.CantAReponer.ToString(), orden.FechaEntrga.ToString(), orden.LugarEntrega });
+                }
+            }
+
         }
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
@@ -76,6 +91,22 @@ namespace TP_Integrador.Forms
                 }
             }
             else { MessageBox.Show("Agregue productos a la orden de compra"); }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idProducto = Convert.ToInt32(grillaOrden.CurrentRow.Cells[0].Value);
+                OrdenDeCompra itemAEliminar = listCompra.FirstOrDefault(c => c.idProducto == idProducto);
+
+                if (itemAEliminar != null)
+                {
+                    listCompra.Remove(itemAEliminar);
+                }
+                ActualizarGrilla();
+            }
+            catch (Exception ex) { }
         }
     }
 }
