@@ -100,7 +100,6 @@ namespace TP_Integrador
                 {
                     total += (item.total * PorcentajeDescuento) / 100;
                 }
-                else { total += item.total; }
             }
             return total;
         }
