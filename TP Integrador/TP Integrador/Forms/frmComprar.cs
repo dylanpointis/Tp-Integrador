@@ -145,7 +145,7 @@ namespace TP_Integrador
             {
                 if(cmbMetodoPago.Text != "")
                 {
-                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotalDescuento());
+                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerSubtotal() - ObtenerTotalDescuento());
                     if (cmbMetodoPago.Text == "Transferencia")
                     {
                         frmPagarTransferencia frm = new frmPagarTransferencia(pedido, listaCarrito);

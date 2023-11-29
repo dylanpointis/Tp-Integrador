@@ -93,26 +93,6 @@ namespace TP_Integrador
             }
             
             label1.Text = $"Bienvenido {user.Rol} {user.NombreUsuario}";
-            /*if (user.Rol == "Empleado")
-            {
-                btnComprar.Visible = false;
-                btnConsultarVentas.Visible = false;
-                btnAdministrarUsuarios.Visible = false;
-                btnVerEnvio.Visible = false;
-            }
-            if (user.Rol == "Cliente")
-            {
-                btnProductos.Visible = false;
-                btnProgramarEnvios.Visible = false;
-                btnConsultarVentas.Visible = false;
-                btnAdministrarUsuarios.Visible = false;
-                btnProveedores.Visible = false;
-            }
-            if(user.Rol == "Admin")
-            {
-                btnComprar.Visible = false;
-                btnProgramarEnvios.Visible = false;
-            }*/
         }
 
         private void btnComprar_Click_1(object sender, EventArgs e)
