@@ -162,6 +162,12 @@
     <Compile Include="Forms\frmSolicitarStock.Designer.cs">
       <DependentUpon>frmSolicitarStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmVerPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVerPedidos.Designer.cs">
+      <DependentUpon>frmVerPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlesUsuario\textBoxSoloNumero.resx">
@@ -221,6 +227,9 @@
     <EmbeddedResource Include="Forms\frmSolicitarStock.resx">
       <DependentUpon>frmSolicitarStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVerPedidos.resx">
+      <DependentUpon>frmVerPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -253,6 +262,5 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

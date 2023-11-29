@@ -27,17 +27,18 @@ namespace TP_Integrador
         {
             if (SingletonSessionManager._instance == null) //Chequea que no haya una instancia de SINGLETON, que no haya iniciado sesion antes
             {
-                (bool esValido, Usuario user) = bllUsuarios.VerificarUsuario(txtNombreUsuario.Text, txtClave.Text);//Verifica el usuario con username y clave
+                Usuario user = bllUsuarios.VerificarUsuario(txtNombreUsuario.Text, txtClave.Text);//Verifica el usuario con username y clave. Trae el usuario con sus Datos y Familia
 
-                if (esValido)
+                if (user != null)
                 {
-                    SingletonSessionManager.Instancia.EstablecerUsuario(user);
+                    SingletonSessionManager.Instancia.EstablecerUsuario(user); //Establece el usuario en la instancia de singleton
 
                     this.Hide(); //oculta el formulario actual
                     frmInicio form = new frmInicio();
 
                     form.Show();
-                    form.FormClosing += CerrandoFormulario; //cuando se cierra el formulario Inicio ejecuta la funcion CerrandoFormulario que vuelve a mostrar el formulario actual y elimina la instancia del Singleton
+                    form.FormClosing += CerrandoFormulario; //cuando se cierra el formulario Inicio ejecuta la funcion CerrandoFormulario que vuelve a mostrar el formulario actual
+                                                            //y elimina la instancia del Singleton
                 }
                 else
                 {

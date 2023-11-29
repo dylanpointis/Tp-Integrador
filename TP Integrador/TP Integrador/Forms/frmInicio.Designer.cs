@@ -34,6 +34,7 @@ namespace TP_Integrador
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDescuentos = new System.Windows.Forms.Button();
             this.btnConsultarVentas = new System.Windows.Forms.Button();
             this.btnReclamos = new System.Windows.Forms.Button();
             this.btnAdministrarUsuarios = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@ namespace TP_Integrador
             this.btnProgramarEnvios = new System.Windows.Forms.Button();
             this.btnVerEnvio = new System.Windows.Forms.Button();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.btnDescuentos = new System.Windows.Forms.Button();
+            this.btnVerPedidos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +85,7 @@ namespace TP_Integrador
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnVerPedidos);
             this.panel2.Controls.Add(this.btnDescuentos);
             this.panel2.Controls.Add(this.btnConsultarVentas);
             this.panel2.Controls.Add(this.btnReclamos);
@@ -99,6 +101,23 @@ namespace TP_Integrador
             this.panel2.Size = new System.Drawing.Size(1134, 106);
             this.panel2.TabIndex = 0;
             // 
+            // btnDescuentos
+            // 
+            this.btnDescuentos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDescuentos.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDescuentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescuentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescuentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuentos.Image")));
+            this.btnDescuentos.Location = new System.Drawing.Point(822, 0);
+            this.btnDescuentos.Name = "btnDescuentos";
+            this.btnDescuentos.Size = new System.Drawing.Size(122, 106);
+            this.btnDescuentos.TabIndex = 13;
+            this.btnDescuentos.Text = "Descuentos";
+            this.btnDescuentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDescuentos.UseVisualStyleBackColor = true;
+            this.btnDescuentos.Visible = false;
+            this.btnDescuentos.Click += new System.EventHandler(this.btnDescuentos_Click);
+            // 
             // btnConsultarVentas
             // 
             this.btnConsultarVentas.Dock = System.Windows.Forms.DockStyle.Left;
@@ -113,6 +132,7 @@ namespace TP_Integrador
             this.btnConsultarVentas.Text = "Consultar ventas";
             this.btnConsultarVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnConsultarVentas.UseVisualStyleBackColor = true;
+            this.btnConsultarVentas.Visible = false;
             this.btnConsultarVentas.Click += new System.EventHandler(this.btnConsultarVentas_Click);
             // 
             // btnReclamos
@@ -129,6 +149,7 @@ namespace TP_Integrador
             this.btnReclamos.Text = "Reclamos";
             this.btnReclamos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReclamos.UseVisualStyleBackColor = true;
+            this.btnReclamos.Visible = false;
             this.btnReclamos.Click += new System.EventHandler(this.btnReclamos_Click_1);
             // 
             // btnAdministrarUsuarios
@@ -145,6 +166,7 @@ namespace TP_Integrador
             this.btnAdministrarUsuarios.Text = "Usuarios";
             this.btnAdministrarUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAdministrarUsuarios.UseVisualStyleBackColor = true;
+            this.btnAdministrarUsuarios.Visible = false;
             this.btnAdministrarUsuarios.Click += new System.EventHandler(this.btnAdministrarUsuarios_Click_1);
             // 
             // btnProveedores
@@ -161,6 +183,7 @@ namespace TP_Integrador
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Visible = false;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // btnProductos
@@ -177,6 +200,7 @@ namespace TP_Integrador
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Visible = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click_1);
             // 
             // btnProgramarEnvios
@@ -193,6 +217,7 @@ namespace TP_Integrador
             this.btnProgramarEnvios.Text = "Programar envíos";
             this.btnProgramarEnvios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnProgramarEnvios.UseVisualStyleBackColor = true;
+            this.btnProgramarEnvios.Visible = false;
             this.btnProgramarEnvios.Click += new System.EventHandler(this.btnProgramarEnvios_Click_1);
             // 
             // btnVerEnvio
@@ -209,6 +234,7 @@ namespace TP_Integrador
             this.btnVerEnvio.Text = "Ver envio";
             this.btnVerEnvio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnVerEnvio.UseVisualStyleBackColor = true;
+            this.btnVerEnvio.Visible = false;
             this.btnVerEnvio.Click += new System.EventHandler(this.btnVerEnvio_Click);
             // 
             // btnComprar
@@ -226,23 +252,25 @@ namespace TP_Integrador
             this.btnComprar.Text = "Comprar";
             this.btnComprar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnComprar.UseVisualStyleBackColor = true;
+            this.btnComprar.Visible = false;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click_1);
             // 
-            // btnDescuentos
+            // btnVerPedidos
             // 
-            this.btnDescuentos.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDescuentos.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDescuentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescuentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescuentos.Image = ((System.Drawing.Image)(resources.GetObject("btnDescuentos.Image")));
-            this.btnDescuentos.Location = new System.Drawing.Point(822, 0);
-            this.btnDescuentos.Name = "btnDescuentos";
-            this.btnDescuentos.Size = new System.Drawing.Size(122, 106);
-            this.btnDescuentos.TabIndex = 13;
-            this.btnDescuentos.Text = "Descuentos";
-            this.btnDescuentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDescuentos.UseVisualStyleBackColor = true;
-            this.btnDescuentos.Click += new System.EventHandler(this.btnDescuentos_Click);
+            this.btnVerPedidos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnVerPedidos.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnVerPedidos.Image")));
+            this.btnVerPedidos.Location = new System.Drawing.Point(944, 0);
+            this.btnVerPedidos.Name = "btnVerPedidos";
+            this.btnVerPedidos.Size = new System.Drawing.Size(122, 106);
+            this.btnVerPedidos.TabIndex = 14;
+            this.btnVerPedidos.Text = "Ver pedidos";
+            this.btnVerPedidos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnVerPedidos.UseVisualStyleBackColor = true;
+            this.btnVerPedidos.Visible = false;
+            this.btnVerPedidos.Click += new System.EventHandler(this.btnVerPedidos_Click);
             // 
             // frmInicio
             // 
@@ -278,5 +306,6 @@ namespace TP_Integrador
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDescuentos;
+        private System.Windows.Forms.Button btnVerPedidos;
     }
 }

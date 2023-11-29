@@ -20,6 +20,18 @@ namespace BLL
             return dt;
         }
 
+        public DataTable traerTablaSegunIdCliente(int idCliente)
+        {
+            DataTable dt = dal.traerTablaQuery($"SELECT * FROM Pedidos where id_cliente = {idCliente}");
+            return dt;
+        }
+
+        public DataTable traerTablaPedido_Producto(int idPedido)
+        {
+            DataTable dt = dal.traerTablaQuery($"SELECT * FROM Pedido_Producto where id_pedido = {idPedido}");
+            return dt;
+        }
+
         public int AgregarPedido(Pedidos pedido)
         {
             //Ejecuta el comando INSERT y devuelve el ID autoincrementable con SELECT SCOPE_IDENTITY();

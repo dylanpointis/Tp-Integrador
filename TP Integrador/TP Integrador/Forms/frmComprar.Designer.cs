@@ -45,6 +45,7 @@ namespace TP_Integrador
             this.label4 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblTotalConDescuento = new System.Windows.Forms.Label();
+            this.lblDescuentos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grillaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grillaCarrito)).BeginInit();
             this.SuspendLayout();
@@ -198,17 +199,28 @@ namespace TP_Integrador
             // 
             this.lblTotalConDescuento.AutoSize = true;
             this.lblTotalConDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalConDescuento.Location = new System.Drawing.Point(236, 368);
+            this.lblTotalConDescuento.Location = new System.Drawing.Point(236, 400);
             this.lblTotalConDescuento.Name = "lblTotalConDescuento";
             this.lblTotalConDescuento.Size = new System.Drawing.Size(160, 16);
             this.lblTotalConDescuento.TabIndex = 15;
             this.lblTotalConDescuento.Text = "Total con descuentos:";
+            // 
+            // lblDescuentos
+            // 
+            this.lblDescuentos.AutoSize = true;
+            this.lblDescuentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescuentos.Location = new System.Drawing.Point(236, 368);
+            this.lblDescuentos.Name = "lblDescuentos";
+            this.lblDescuentos.Size = new System.Drawing.Size(97, 16);
+            this.lblDescuentos.TabIndex = 16;
+            this.lblDescuentos.Text = "Descuentos: ";
             // 
             // frmComprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 470);
+            this.Controls.Add(this.lblDescuentos);
             this.Controls.Add(this.lblTotalConDescuento);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.label4);
@@ -251,5 +263,6 @@ namespace TP_Integrador
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label lblTotalConDescuento;
+        private System.Windows.Forms.Label lblDescuentos;
     }
 }

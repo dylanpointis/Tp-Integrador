@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
@@ -46,22 +47,26 @@ namespace TP_Integrador
                 decimal precio = Convert.ToDecimal(grillaProductos.CurrentRow.Cells[1].Value);
                 int cantStock = Convert.ToInt32(grillaProductos.CurrentRow.Cells[2].Value);
 
-                int cantComprada = Convert.ToInt32(Interaction.InputBox("Ingrese la cantidad a comprar"));
+                string cantComprada = Interaction.InputBox("Ingrese la cantidad a comprar");
 
-                if (cantComprada <= cantStock)
+                if (Regex.IsMatch(cantComprada.ToString(), @"^\d+$"))  //COMPRUEBA CON REGEX QUE LA CANT INGRESADA ES UN NUMERO
                 {
-                    Item item = new Item(idProducto, cantComprada);
-                    item.precio = precio;
+                    if (Convert.ToInt32(cantComprada) <= cantStock)
+                    {
+                        Item item = new Item(idProducto, Convert.ToInt32(cantComprada));
+                        item.precio = precio;
 
-                    listaCarrito.Add(item);
+                        listaCarrito.Add(item);
 
-                    ActualizarLabelTotal();
-                    ActualizarGrilla();
-                }
-                else
-                {
-                    MessageBox.Show("La cantidad ingresada supera al STOCK disponible");
-                }
+                        ActualizarLabelTotal();
+                        ActualizarGrilla();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cantidad ingresada supera al STOCK disponible");
+                    }
+                }  
+                else { MessageBox.Show("La cantidad ingresada NO es un número"); }        
             }
             catch { MessageBox.Show("Asegurese de seleccionar los productos deseados en la grilla Productos, y de que la cantidad ingresada sea un número"); }
             
@@ -69,11 +74,12 @@ namespace TP_Integrador
 
         private void ActualizarLabelTotal()
         {
-            lblTotal.Text = "Total: " + ObtenerTotal().ToString();
-            lblTotalConDescuento.Text = "Total con descuentos: " + ObtenerTotalConDescuento().ToString();
+            lblTotal.Text = "Subtotal: " + ObtenerSubtotal().ToString();
+            lblDescuentos.Text = "Descuentos: " + ObtenerTotalDescuento().ToString();
+            lblTotalConDescuento.Text = "Total: " +Convert.ToString(ObtenerSubtotal() - ObtenerTotalDescuento());
         }
 
-        private decimal ObtenerTotal()
+        private decimal ObtenerSubtotal()
         {
             decimal total = 0;
             foreach (Item item in listaCarrito)
@@ -84,15 +90,15 @@ namespace TP_Integrador
         }
 
 
-        private decimal ObtenerTotalConDescuento()
+        private decimal ObtenerTotalDescuento()
         {
             decimal total = 0;
             foreach (Item item in listaCarrito)
             {
-                int descuento = bllDescuentos.ConsultarDescuento(item.idProducto);
-                if (descuento > 0)
+                int PorcentajeDescuento = bllDescuentos.ConsultarDescuento(item.idProducto);
+                if (PorcentajeDescuento > 0)
                 {
-                    total += (item.total * descuento) / 100;
+                    total += (item.total * PorcentajeDescuento) / 100;
                 }
                 else { total += item.total; }
             }
@@ -139,7 +145,7 @@ namespace TP_Integrador
             {
                 if(cmbMetodoPago.Text != "")
                 {
-                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotalConDescuento());
+                    Pedidos pedido = new Pedidos(user.IDUser, DateTime.Now.ToString("dd-MM-yyyy HH:mm"), cmbMetodoPago.Text, ObtenerTotalDescuento());
                     if (cmbMetodoPago.Text == "Transferencia")
                     {
                         frmPagarTransferencia frm = new frmPagarTransferencia(pedido, listaCarrito);

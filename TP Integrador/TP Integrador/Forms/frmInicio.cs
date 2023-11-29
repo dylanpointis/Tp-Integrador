@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
+using BE.Composite;
 using BLL;
 using TP_Integrador.Forms;
 
@@ -44,8 +45,55 @@ namespace TP_Integrador
 
         private void frmInicio_Load(object sender, EventArgs e) //OCULTAR BOTONES SEGUN ROL
         {
+            //LAS FAMILIAS Y PATENTES SE ESTABLECEN EN EL INICIO DE SESION, EN LA BLLUSUARIOS
+            IList<Componente> listaPatentes = user.familia.ObtenerHijos();
+         
+            foreach(Patente patente in listaPatentes)
+            {
+                if(patente.Nombre == "Comprar")
+                {
+                    btnComprar.Visible = true;
+                }
+                if (patente.Nombre == "Envios")
+                {
+                    btnVerEnvio.Visible = true;
+                }
+                if (patente.Nombre == "ProgramarEnvios")
+                {
+                    btnProgramarEnvios.Visible = true;
+                }
+                if (patente.Nombre == "Productos")
+                {
+                    btnProductos.Visible = true;
+                }
+                if (patente.Nombre == "Proveedores")
+                {
+                    btnProveedores.Visible = true;
+                }
+                if (patente.Nombre == "Usuarios")
+                {
+                    btnAdministrarUsuarios.Visible = true;
+                }
+                if (patente.Nombre == "Reclamos")
+                {
+                    btnReclamos.Visible = true;
+                }
+                if (patente.Nombre == "ConsultarVentas")
+                {
+                    btnConsultarVentas.Visible = true;
+                }
+                if (patente.Nombre == "Descuentos")
+                {
+                    btnDescuentos.Visible = true;
+                }
+                if (patente.Nombre == "Pedidos")
+                {
+                    btnVerPedidos.Visible = true;
+                }
+            }
+            
             label1.Text = $"Bienvenido {user.Rol} {user.NombreUsuario}";
-            if (user.Rol == "Empleado")
+            /*if (user.Rol == "Empleado")
             {
                 btnComprar.Visible = false;
                 btnConsultarVentas.Visible = false;
@@ -64,7 +112,7 @@ namespace TP_Integrador
             {
                 btnComprar.Visible = false;
                 btnProgramarEnvios.Visible = false;
-            }
+            }*/
         }
 
         private void btnComprar_Click_1(object sender, EventArgs e)
@@ -118,6 +166,12 @@ namespace TP_Integrador
         private void btnDescuentos_Click(object sender, EventArgs e)
         {
             frmDescuentos form = new frmDescuentos();
+            AbrirForm(form);
+        }
+
+        private void btnVerPedidos_Click(object sender, EventArgs e)
+        {
+            frmVerPedidos form = new frmVerPedidos();
             AbrirForm(form);
         }
     }
