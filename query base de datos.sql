@@ -201,6 +201,9 @@ Insert into Empleados VALUES (2,'Esteban','Rodriguez','6 hs', 250000)
 
 Insert into Productos VALUES (1500,60,'Coca-Cola');
 Insert into Productos VALUES (3000,40,'Pizza mozzarella');
+Insert into Productos VALUES (2500,60,'Caja 4u paty');
+Insert into Productos VALUES (2000,30,'Milanesa');
+Insert into Productos VALUES (900,50,'Agua Villa del sur');
 
 INSERT INTO Proveedores values ('Distribuidora Lomas', 1111234)
 insert into Logistica values ('Logistica Lomas de Zamora','9hs a 16hs', 40000)
